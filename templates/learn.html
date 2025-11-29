@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📘 Learn Logic</h2>
+<p>Click on a topic to learn more. You can also listen to the explanation using the voice icon.</p>
+
+<div class="topic-list">
+
+  <!-- Propositions -->
+  <div class="topic-card" onclick="toggleExplanation('prop')">
+    <strong>Propositions & Connectives</strong>
+  </div>
+  <div id="prop" class="explanation">
+    <p>A proposition is a statement that is either true or false. Logical connectives like ∧ (and), ∨ (or), ¬ (not), → (implies), and ↔ (if and only if) are used to build compound statements.</p>
+    <button onclick="speakText(this)">🎤 Read Aloud</button>
+  </div>
+
+  <!-- Truth Tables -->
+  <div class="topic-card" onclick="toggleExplanation('truth')">
+    <strong>Truth Tables</strong>
+  </div>
+  <div id="truth" class="explanation">
+    <p>Truth tables show the output of a logical formula for every possible combination of truth values of its variables.</p>
+    <button onclick="speakText(this)">🎤 Read Aloud</button>
+  </div>
+
+  <!-- Logical Equivalence -->
+  <div class="topic-card" onclick="toggleExplanation('equiv')">
+    <strong>Logical Equivalence</strong>
+  </div>
+  <div id="equiv" class="explanation">
+    <p>Two formulas are logically equivalent if they have the same truth value in every possible situation.</p>
+    <button onclick="speakText(this)">🎤 Read Aloud</button>
+  </div>
+
+  <!-- Tautology vs Contradiction -->
+  <div class="topic-card" onclick="toggleExplanation('taut')">
+    <strong>Tautology vs Contradiction</strong>
+  </div>
+  <div id="taut" class="explanation">
+    <p>A tautology is always true; a contradiction is always false regardless of the truth values of its variables.</p>
+    <button onclick="speakText(this)">🎤 Read Aloud</button>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  // Toggle explanation visibility
+  window.toggleExplanation = function(id) {
+    const expl = document.getElementById(id);
+    expl.style.display = (expl.style.display === "block") ? "none" : "block";
+  }
+
+  // Speak explanation aloud
+  window.speakText = function(btn) {
+    const text = btn.parentElement.querySelector("p").textContent;
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.rate = 1;  // normal speed
+    utter.pitch = 1;
+    speechSynthesis.speak(utter);
+  }
+
+});
+</script>
+{% endblock %}

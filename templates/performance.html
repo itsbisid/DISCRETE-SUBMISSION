@@ -1,0 +1,25 @@
+<h2>Your Topic Performance</h2>
+
+<table>
+    <tr>
+        <th>Topic</th>
+        <th>Attempts</th>
+        <th>Correct</th>
+        <th>Accuracy</th>
+    </tr>
+
+    {% for topic, data in performance.items() %}
+    <tr>
+        <td>{{ topic }}</td>
+        <td>{{ data.attempts }}</td>
+        <td>{{ data.correct }}</td>
+        <td>
+            {% if data.attempts > 0 %}
+                {{ (data.correct / data.attempts * 100) | round(1) }}%
+            {% else %}
+                —
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

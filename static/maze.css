@@ -1,0 +1,98 @@
+/* Container */
+.maze-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title */
+.room-title {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Prompt */
+.prompt {
+    font-size: 1.2rem;
+    margin: 18px 0;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Room Image */
+.room-img {
+    width: 100%;
+    max-width: 550px;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.22);
+    animation: popIn 0.6s ease;
+}
+
+/* Stats row */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 12px 0 25px;
+    font-size: 1.1rem;
+}
+
+/* Choice Cards */
+.choices-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.choice-card {
+    padding: 14px;
+    background: var(--card-bg, #222);
+    border-radius: 12px;
+    border: 1px solid var(--border, #444);
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.choice-card:hover {
+    transform: scale(1.06);
+    background: var(--accent, #4e7cff);
+    color: white;
+    border-color: transparent;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.45s ease;
+}
+
+.hover-pop {
+    transition: transform 0.2s ease;
+}
+
+.hover-pop:hover {
+    transform: scale(1.07);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Friendly */
+@media (max-width: 600px) {
+    .prompt {
+        font-size: 1.05rem;
+    }
+    .choice-card {
+        font-size: 1.05rem;
+    }
+}

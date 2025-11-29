@@ -1,0 +1,133 @@
+{
+  "A": {
+    "title": "The Gate of Connectives",
+    "prompt": "Evaluate (p ∨ ¬q) ∧ r for p=T, q=F, r=T.",
+    "choices": {
+      "1": "True",
+      "2": "False"
+    },
+    "correct": "1",
+    "next": "B",
+    "icon": "💡",
+    "image": "room1.png"
+  },
+
+  "B": {
+    "title": "The Equivalence Hall",
+    "prompt": "Are p → q and ¬p ∨ q logically equivalent?",
+    "choices": {
+      "1": "Yes",
+      "2": "No"
+    },
+    "correct": "1",
+    "next": "C",
+    "icon": "🔗",
+    "image": "room2.png"
+  },
+
+  "C": {
+    "title": "The Chamber of Validity",
+    "prompt": "Given: p ∨ q, ¬p ⟹ q. Is the argument valid?",
+    "choices": {
+      "1": "Valid",
+      "2": "Invalid"
+    },
+    "correct": "1",
+    "next": "D",
+    "icon": "⚖️",
+    "image": "room3.png"
+  },
+
+  "D": {
+    "title": "Truth Table Trial",
+    "prompt": "For p=T, q=F, what is p ↔ ¬q?",
+    "choices": {
+      "1": "True",
+      "2": "False"
+    },
+    "correct": "2",
+    "next": "BOSS",
+    "icon": "🧠",
+    "image": "room4.png"
+  },
+
+  "BOSS": {
+    "title": "👹 Final Boss – Multi-Step Logic Trial",
+    "prompt": "Evaluate all:\n1) ¬(p ∧ q)\n2) (p → r)\n3) (q ∨ ¬r)\nFor p=F, q=T, r=F → Which option is correct?",
+    "choices": {
+      "1": "All are True",
+      "2": "All are False",
+      "3": "Mixed truth values"
+    },
+    "correct": "3",
+    "next": "END",
+    "icon": "👹",
+    "image": "boss1.png"
+  },
+
+  "H1": {
+    "title": "Hard Mode – Implication Gate",
+    "prompt": "Evaluate ¬(p → q) ∧ r for p=T, q=T, r=F.",
+    "choices": {
+      "1": "True",
+      "2": "False"
+    },
+    "correct": "2",
+    "next": "H2",
+    "icon": "🔥",
+    "image": "hard1.png"
+  },
+
+  "H2": {
+    "title": "Hard Mode – Nested Connectives",
+    "prompt": "Is (p ∧ (q ∨ r)) → (p ∧ q) a tautology?",
+    "choices": {
+      "1": "Yes",
+      "2": "No"
+    },
+    "correct": "2",
+    "next": "H3",
+    "icon": "🔥",
+    "image": "hard2.png"
+  },
+
+  "H3": {
+    "title": "Hard Mode – Equivalence Logic",
+    "prompt": "Is (¬p ↔ q) logically equivalent to ¬(p ↔ ¬q)?",
+    "choices": {
+      "1": "Yes",
+      "2": "No"
+    },
+    "correct": "1",
+    "next": "H4",
+    "icon": "🔥",
+    "image": "hard3.png"
+  },
+
+  "H4": {
+    "title": "Hard Mode – Logical Trap",
+    "prompt": "For p=F, q=F, r=T → what is ((p ∨ q) ∧ ¬r) → p?",
+    "choices": {
+      "1": "True",
+      "2": "False"
+    },
+    "correct": "1",
+    "next": "BOSS_H",
+    "icon": "🔥",
+    "image": "hard4.png"
+  },
+
+  "BOSS_H": {
+    "title": "👹 Hard Mode Boss – Ultimate Logic Challenge",
+    "prompt": "Given p=T, q=F, r=T: which is correct?\n1) (p ∧ ¬q) ∨ (q → r)\n2) ¬(p ↔ r)\n3) (p ∨ q) ∧ (¬p → r)\nPick the correct overall truth values:",
+    "choices": {
+      "1": "All True",
+      "2": "Exactly one False",
+      "3": "At least two False"
+    },
+    "correct": "2",
+    "next": "END",
+    "icon": "👹🔥",
+    "image": "boss2.png"
+  }
+}

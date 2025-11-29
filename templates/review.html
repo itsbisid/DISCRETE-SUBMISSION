@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Flashcards – Logic Tutor{% endblock %}
+{% block content %}
+
+<div class="card">
+  <h2>📚 Flashcards</h2>
+  <p class="note">Filter a deck, then click the card to flip. Use <kbd>←</kbd> and <kbd>→</kbd> or buttons.</p>
+
+  <form id="filterForm" class="controlbar" onsubmit="applyFilters(event)">
+    <label>Topic
+      <select id="topic">
+        <option value="">All</option>
+        <option>Propositional Logic</option>
+        <option>Propositional Equivalences</option>
+        <option>Quantifiers & Predicates</option>
+        <option>Rules of Inference</option>
+        <option>Introduction to Proofs</option>
+        <option>Sets</option>
+        <option>Set Operations</option>
+        <option>Boolean Functions & Logic Gates</option>
+        <option>Algorithms</option>
+        <option>Mathematical Induction</option>
+        
+      </select>
+    </label>
+    <label>Difficulty
+      <select id="difficulty">
+        <option value="">All</option>
+        <option>Easy</option><option>Medium</option><option>Hard</option>
+      </select>
+    </label>
+    <button class="btn" type="submit">Build Deck</button>
+  </form>
+
+  <div class="deck">
+    <div id="flashcard" class="flashcard" tabindex="0">
+      <div class="face front" id="cardFront">Build a deck to start.</div>
+      <div class="face back"  id="cardBack"></div>
+    </div>
+
+    <div class="deck-actions">
+      <button class="btn secondary" onclick="prevCard()">⟵ Prev</button>
+      <button class="btn" onclick="nextCard()">Next ⟶</button>
+      <button class="btn secondary" onclick="readCard()">🔊 Read</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  let idx = 0;
+  let deck = [];
+
+  async function applyFilters(e) {
+    e.preventDefault();
+    const topic = document.getElementById('topic').value;
+    const difficulty = document.getElementById('difficulty').value;
+    const res = await fetch(`/review_data?topic=${encodeURIComponent(topic)}&difficulty=${encodeURIComponent(difficulty)}`);
+    deck = await res.json();
+    idx = 0;
+    renderCard();
+  }
+
+  function renderCard() {
+    const card = document.getElementById('flashcard');
+    if (!deck || deck.length === 0) {
+      document.getElementById('cardFront').textContent = 'No cards found for the selected filters.';
+      document.getElementById('cardBack').textContent = '';
+      card.classList.remove('flipped');
+      return;
+    }
+    document.getElementById('cardFront').textContent = deck[idx].question;
+    document.getElementById('cardBack').textContent  = deck[idx].answer;
+    card.classList.remove('flipped');
+  }
+
+  document.getElementById('flashcard').addEventListener('click', () => {
+    document.getElementById('flashcard').classList.toggle('flipped');
+  });
+
+  function nextCard() { if (deck.length) { idx = (idx + 1) % deck.length; renderCard(); } }
+  function prevCard() { if (deck.length) { idx = (idx - 1 + deck.length) % deck.length; renderCard(); } }
+
+  function readCard() {
+    const card = document.getElementById('flashcard');
+    const frontShowing = !card.classList.contains('flipped');
+    const text = (frontShowing ? document.getElementById('cardFront') : document.getElementById('cardBack')).textContent;
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 1; u.pitch = 1; u.lang = 'en-US';
+    speechSynthesis.cancel(); // stop any prior speech
+    speechSynthesis.speak(u);
+  }
+
+  // Keyboard shortcuts
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextCard();
+    if (e.key === 'ArrowLeft')  prevCard();
+    if (e.key === ' ') document.getElementById('flashcard').classList.toggle('flipped');
+  });
+</script>
+{% endblock %}

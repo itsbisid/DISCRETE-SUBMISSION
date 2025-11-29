@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Logic Tools</h2>
+
+<!-- =============================== -->
+<!-- 1. TRUTH TABLE GENERATOR        -->
+<!-- =============================== -->
+
+<h3>Truth Table Generator</h3>
+<form method="POST">
+    <input type="text" name="formula_tt" placeholder="Enter formula (e.g. ¬(p ∨ q) → r)">
+    <button type="submit" name="action" value="truth_table">Generate</button>
+</form>
+
+{% if result.headers %}
+<table class="truth-table">
+    <thead>
+        <tr>
+            {% for h in result.headers %}
+            <th>{{ h }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in result.table %}
+        <tr>
+            {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% if result.error %}
+<p style="color:red;">Error: {{ result.error }}</p>
+{% endif %}
+
+<hr>
+
+
+<!-- =============================== -->
+<!-- 2. FORMULA CLASSIFIER           -->
+<!-- =============================== -->
+
+<h3>Formula Classifier</h3>
+<form method="POST">
+    <input type="text" name="formula_class" placeholder="Enter formula">
+    <button type="submit" name="action" value="classify">Classify</button>
+</form>
+
+{% if result.classification %}
+<p><strong>Result:</strong> {{ result.classification }}</p>
+{% endif %}
+
+<hr>
+
+
+<!-- =============================== -->
+<!-- 3. EQUIVALENCE CHECKER          -->
+<!-- =============================== -->
+
+<h3>Equivalence Checker</h3>
+<form method="POST">
+    <input type="text" name="formula1" placeholder="Formula 1">
+    <input type="text" name="formula2" placeholder="Formula 2">
+    <button type="submit" name="action" value="equivalence">Check</button>
+</form>
+
+{% if result.equivalent is not none %}
+<p><strong>Equivalent:</strong> {{ result.equivalent }}</p>
+{% endif %}
+
+<hr>
+
+
+<!-- =============================== -->
+<!-- 4. ARGUMENT VALIDITY CHECKER    -->
+<!-- =============================== -->
+
+<h3>Argument Validity Checker</h3>
+<form method="POST">
+    <input type="text" name="premises" placeholder="Premises (comma-separated)">
+    <input type="text" name="conclusion" placeholder="Conclusion">
+    <button type="submit" name="action" value="validity">Check Validity</button>
+</form>
+
+{% if result.validity %}
+<p><strong>Argument is:</strong> {{ result.validity }}</p>
+{% endif %}
+
+{% endblock %}

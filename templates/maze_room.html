@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/maze.css') }}">
+
+
+<div class="maze-container fade-in">
+
+    <!-- Room Header -->
+    <div class="maze-header">
+
+        <h2 class="room-title">
+            {{ room.icon }} {{ room.title }}
+        </h2>
+
+        <!-- Room Image -->
+        {% if room.image %}
+        <img src="{{ url_for('static', filename='maze/' + room.image) }}" 
+             alt="room-image"
+             class="room-img fade-in">
+        {% endif %}
+
+        <!-- Prompt -->
+        <p class="prompt">{{ room.prompt }}</p>
+
+        <!-- Stats -->
+        <div class="stats">
+            <span>Score: <strong>{{ score }}</strong></span>
+            <span>Mistakes: <strong>{{ mistakes }}</strong></span>
+        </div>
+
+    </div>
+
+    <!-- Choices -->
+    <form method="POST" class="choices-grid">
+        {% for key, val in room.choices.items() %}
+        <button name="choice" 
+                value="{{ key }}" 
+                class="choice-card hover-pop">
+            {{ val }}
+        </button>
+        {% endfor %}
+    </form>
+
+</div>
+
+
+<!-- ========================== -->
+<!-- CSS STYLES FOR THE ROOM UI -->
+<!-- ========================== -->
+
+<style>
+
+/* Container */
+.maze-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title */
+.room-title {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Prompt */
+.prompt {
+    font-size: 1.2rem;
+    margin: 18px 0;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Room Image */
+.room-img {
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: popIn 0.6s ease;
+}
+
+/* Stats row */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 12px 0 25px;
+    font-size: 1.1rem;
+}
+
+/* Choice Cards */
+.choices-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.choice-card {
+    padding: 14px;
+    background: var(--card-bg, #222);
+    border-radius: 12px;
+    border: 1px solid var(--border, #444);
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.choice-card:hover {
+    transform: scale(1.06);
+    background: var(--accent, #4e7cff);
+    color: white;
+    border-color: transparent;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.45s ease;
+}
+
+.hover-pop {
+    transition: transform 0.2s ease;
+}
+
+.hover-pop:hover {
+    transform: scale(1.07);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Friendly */
+@media (max-width: 600px) {
+    .prompt {
+        font-size: 1.05rem;
+    }
+    .choice-card {
+        font-size: 1.05rem;
+    }
+}
+
+</style>
+
+{% endblock %}

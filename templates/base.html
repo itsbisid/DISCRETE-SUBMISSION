@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}Logic Tutor{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🧠 Logic Tutor</div>
+
+    <nav class="nav">
+      <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+      <a href="/learn" class="{% if request.path.startswith('/learn') %}active{% endif %}">Learn</a>
+      <a href="/tools" class="{% if request.path.startswith('/tools') %}active{% endif %}">Tools</a>
+      <a href="/quiz" class="{% if request.path.startswith('/quiz') %}active{% endif %}">Quiz</a>
+      <a href="/review" class="{% if request.path.startswith('/review') %}active{% endif %}">Flashcards</a>
+    </nav>
+
+    <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌙</button>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <span>© 2025 Logic Tutor</span>
+  </footer>
+
+  {% block extra_scripts %}{% endblock %}
+
+  <script>
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const btn  = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+    updateIcon();
+    btn.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = (cur === 'light') ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcon();
+    });
+    function updateIcon() {
+      const mode = document.documentElement.getAttribute('data-theme');
+      btn.textContent = mode === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

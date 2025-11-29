@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>🎉 Quiz Complete!</h2>
+
+  <p>You answered <strong>{{ summary.score }}</strong> out of <strong>{{ summary.total }}</strong> questions correctly.</p>
+  <p>Your score: <strong>{{ summary.percentage }}%</strong></p>
+
+  {% if summary.percentage >= 80 %}
+    <p>🌟 Excellent work! Keep it up.</p>
+  {% elif summary.percentage >= 60 %}
+    <p>👍 Good job — but review a few more concepts!</p>
+  {% else %}
+    <p>📚 Don't worry — practice makes perfect. Try again!</p>
+  {% endif %}
+
+  <a href="/quiz" class="card">🔁 Take Another Quiz</a>
+  <a href="/" class="card">🏠 Return to Home</a>
+{% endblock %}

@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Welcome to Logic Reasoning Tutor</h2>
+
+<section class="about" style="margin-top: 30px;">
+    <h2>About the Logic Reasoning Tutor</h2>
+    <p>
+        The Logic Reasoning Tutor is an interactive learning platform designed to help students strengthen their 
+        understanding of propositional logic, predicate logic, and foundational concepts in discrete mathematics. 
+        It combines guided lessons, automated feedback, and hands-on tools that make learning logical reasoning 
+        intuitive and engaging.
+    </p>
+    <p>
+        The system includes truth-table generation, formula classification, logical equivalence checking, and 
+        argument validity analysis—allowing users to explore and test logic expressions in real time. It also 
+        features a customizable quiz engine with 200 topic-tagged questions, hints, difficulty selection, and 
+        progress tracking.
+    </p>
+    <p>
+        With support for user accounts, guest mode, theme switching, and structured lessons, the app provides a 
+        modern and accessible way to master logic concepts for computer science, mathematics, and analytical thinking.
+    </p>
+</section>
+
+<hr style="margin: 40px 0;">
+
+
+<!-- ===================================================== -->
+<!--    Collapsible Logic Typing Guide (Interactive)       -->
+<!-- ===================================================== -->
+
+<h2>🧠 How to Type Logical Expressions</h2>
+<p>Click a section to expand and learn how to format logic correctly.</p>
+
+<div class="collapse-card">
+    <button class="collapse-btn">1. Allowed Logical Symbols ⬇</button>
+    <div class="collapse-content">
+        <table class="symbol-table">
+            <tr><th>Concept</th><th>Symbol</th><th>Keyboard Alternative</th></tr>
+            <tr><td>NOT</td><td>¬p</td><td>!p or ~p</td></tr>
+            <tr><td>AND</td><td>p ∧ q</td><td>p & q or p and q</td></tr>
+            <tr><td>OR</td><td>p ∨ q</td><td>p | q or p or q</td></tr>
+            <tr><td>IMPLIES</td><td>p → q</td><td>p -> q</td></tr>
+            <tr><td>BICONDITIONAL</td><td>p ↔ q</td><td>p <-> q</td></tr>
+            <tr><td>XOR</td><td>p ⊕ q</td><td>p xor q</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="collapse-card">
+    <button class="collapse-btn">2. Truth Table Generator ⬇</button>
+    <div class="collapse-content">
+        <p>Enter any formula, such as:</p>
+        <ul>
+            <li>(p ∧ ¬q) ∨ r</li>
+            <li>p -> (q | r)</li>
+            <li>(p | !q) & r</li>
+        </ul>
+    </div>
+</div>
+
+<div class="collapse-card">
+    <button class="collapse-btn">3. Formula Classifier ⬇</button>
+    <div class="collapse-content">
+        <p>Check if a formula is a tautology, contradiction, or contingency.</p>
+        <ul>
+            <li>p ∨ ¬p</li>
+            <li>p & ¬p</li>
+            <li>p -> q</li>
+        </ul>
+    </div>
+</div>
+
+<div class="collapse-card">
+    <button class="collapse-btn">4. Logical Equivalence Checker ⬇</button>
+    <div class="collapse-content">
+        <pre>
+Formula 1: p -> q
+Formula 2: !p or q
+        </pre>
+    </div>
+</div>
+
+<div class="collapse-card">
+    <button class="collapse-btn">5. Argument Validity Checker ⬇</button>
+    <div class="collapse-content">
+        <pre>
+Premises:   p -> q, q -> r, p
+Conclusion: r
+        </pre>
+    </div>
+</div>
+
+<div class="collapse-card">
+    <button class="collapse-btn">6. Error & Exception Handling ⬇</button>
+    <div class="collapse-content">
+        <p>
+            The app includes strong exception handling to catch:
+        </p>
+        <ul>
+            <li>Mismatched parentheses</li>
+            <li>Invalid symbols</li>
+            <li>Empty input</li>
+            <li>Undefined variables</li>
+            <li>Malformed logical expressions</li>
+        </ul>
+        <p>Your input never breaks the system—clear error messages guide you instead.</p>
+    </div>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<p>Explore logic through learning modules, interactive tools, and fun quizzes.</p>
+
+<div class="grid">
+    <a href="/learn" class="card">📘 Learn Concepts</a>
+    <a href="/tools" class="card">🧠 Logic Tools</a>
+    <a href="/quiz" class="card">📝 Take a Quiz</a>
+    <a href="/logic_maze" class="btn btn-primary">🎮 Play Maze</a>
+</div>
+
+
+<!-- ===================================================== -->
+<!--               COLLAPSE + STYLING SCRIPTS              -->
+<!-- ===================================================== -->
+
+<style>
+    .collapse-card {
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        margin: 15px 0;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .collapse-btn {
+        width: 100%;
+        text-align: left;
+        background: var(--accent);
+        color: white;
+        padding: 15px;
+        font-size: 1.05rem;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .collapse-btn:hover {
+        background: var(--accent-hover);
+    }
+
+    .collapse-content {
+        padding: 15px 20px;
+        display: none;
+        animation: fadeIn 0.35s ease;
+    }
+
+    .symbol-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .symbol-table th, .symbol-table td {
+        border-bottom: 1px solid var(--border);
+        padding: 10px;
+    }
+
+    .symbol-table th {
+        background: var(--bg-tertiary);
+        font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<script>
+    const buttons = document.querySelectorAll(".collapse-btn");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const content = btn.nextElementSibling;
+            const open = content.style.display === "block";
+            content.style.display = open ? "none" : "block";
+            btn.textContent = btn.textContent.replace(open ? "⬆" : "⬇", open ? "⬇" : "⬆");
+        });
+    });
+</script>
+
+{% endblock %}

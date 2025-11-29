@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="end-screen fade-in">
+    <h2>🏆 Logic Maze Completed!</h2>
+
+    <p>Your Score: <strong>{{ score }}</strong></p>
+    <p>Mistakes: <strong>{{ mistakes }}</strong></p>
+    <p>Time: <strong>{{ time }} seconds</strong></p>
+
+    {% if score >= 35 %}
+        <h3 class="gold">🥇 Platinum Rank</h3>
+    {% elif score >= 25 %}
+        <h3 class="silver">🥈 Gold Rank</h3>
+    {% elif score >= 15 %}
+        <h3 class="bronze">🥉 Silver Rank</h3>
+    {% else %}
+        <h3>🪨 Bronze Rank</h3>
+    {% endif %}
+
+    <!-- Play Again -->
+    <a href="/logic_maze" class="restart-btn" style="margin-top: 20px; display:inline-block;">
+        ▶ Play Again
+    </a>
+
+    <!-- Restart Maze (full reset) -->
+    <a href="/logic_maze/reset" class="restart-btn" style="background:#6a4cff; margin-top:10px; display:inline-block;">
+        🔄 Restart Maze
+    </a>
+
+    <!-- Return Home -->
+    <a href="/" class="restart-btn" style="background:#444; margin-top:10px; display:inline-block;">
+        🏠 Return Home
+    </a>
+</div>
+
+<style>
+.end-screen {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.restart-btn {
+    padding: 12px 20px;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.restart-btn:hover {
+    opacity: 0.85;
+}
+
+.gold { color: gold; }
+.silver { color: silver; }
+.bronze { color: #cd7f32; }
+</style>
+
+{% endblock %}

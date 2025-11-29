@@ -1,0 +1,226 @@
+
+{% extends "base.html" %}
+{% block title %}Quiz – Logic Tutor{% endblock %}
+{% block content %}
+
+<div class="card">
+
+  <!-- Inline CSS (part specific to quiz) -->
+  <style>
+    /* Animated hint box */
+    .hint {
+      background: #fff9c4;
+      border-left: 4px solid #ffd54f;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      animation: fadeInHint 0.6s ease both;
+    }
+
+    @keyframes fadeInHint {
+      0% { opacity: 0; transform: translateY(-6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Explanation toggle button + animation */
+    .toggle-exp-btn {
+      padding: 6px 10px;
+      background: color-mix(in srgb, var(--brand) 10%, var(--card));
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: background 0.2s, transform 0.1s ease;
+    }
+
+    .toggle-exp-btn:hover {
+      background: color-mix(in srgb, var(--brand) 18%, var(--card));
+      transform: translateY(-2px);
+    }
+
+    .explanation-box {
+      background: color-mix(in srgb, var(--brand) 10%, var(--card));
+      border-left: 4px solid var(--brand);
+      padding: 0.6rem 0.8rem;
+      margin-top: 0.4rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      animation: fadeInExplanation 0.45s ease both;
+    }
+
+    @keyframes fadeInExplanation {
+      0% { opacity: 0; transform: translateY(-4px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  {% if not session.get("quiz_started") %}
+
+    <!-- Quiz Start Screen -->
+    <h2>📝 Start a Quiz</h2>
+    <p class="note">Choose how many questions, difficulty, and a topic (optional).</p>
+
+    <form method="POST" action="/quiz/start" class="controlbar">
+
+      <label>Count
+        <select name="count" required>
+          <option>5</option><option>10</option><option>15</option><option>20</option>
+        </select>
+      </label>
+
+      <label>Difficulty
+        <select name="difficulty">
+          <option value="">Any</option>
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Hard</option>
+        </select>
+      </label>
+
+      <label>Topic
+        <select name="topic">
+          <option value="">All Topics</option>
+
+          <!-- Core topics -->
+          <option>Propositional Logic</option>
+          <option>Predicate Logic</option>
+          <option>Sets</option>
+          <option>Boolean Functions</option>
+          <option>Rules of Inference</option>
+          <option>Quantifiers</option>
+          <option>Combinatorics</option>
+          <option>Relations & Functions</option>
+
+          <!-- Additional topics -->
+          <option>Propositional Equivalences</option>
+          <option>Introduction to Proofs</option>
+          <option>Set Operations</option>
+          <option>Logic Gates</option>
+          <option>Algorithms</option>
+          <option>Mathematical Induction</option>
+        </select>
+      </label>
+
+      <div class="form-group" style="margin-top: 10px;">
+        <label><input type="checkbox" name="adaptive" value="on"> Enable Adaptive Difficulty</label>
+      </div>
+
+      <button class="btn" type="submit">Start Quiz ▶</button>
+
+    </form>
+
+  {% else %}
+
+    <!-- Adaptive Difficulty Badge -->
+    {% if session.adaptive %}
+      <div class="note" style="color:#00ff99; margin-bottom: 10px;">
+        🔄 Adaptive Mode Active – Difficulty Adjusts Automatically
+      </div>
+    {% endif %}
+
+    <!-- Header -->
+    <div class="quiz-header">
+      <div><strong>Question {{ session.quiz_index + 1 }}</strong> of {{ session.quiz_total }}</div>
+      <div class="progress">
+        <div style="width: {{ ((session.quiz_index + 0.0001) / session.quiz_total) * 100 }}%"></div>
+      </div>
+    </div>
+
+    <!-- Question -->
+    <div class="question">{{ question.question }}</div>
+
+    <!-- Meta info -->
+    {% if not hide_difficulty %}
+      <div class="meta">
+        Topic: <strong>{{ question.topic }}</strong> · Difficulty: <strong>{{ question.difficulty }}</strong>
+      </div>
+    {% else %}
+      <div class="meta">Topic: <strong>{{ question.topic }}</strong></div>
+    {% endif %}
+
+    <!-- If question NOT answered yet -->
+    {% if not answered %}
+
+      <form method="POST" action="/quiz" class="opts">
+        {% for option in question.options %}
+          <label class="opt">
+            <input type="radio" name="answer" value="{{ option }}" required>
+            <span>{{ option }}</span>
+          </label>
+        {% endfor %}
+
+        <div class="actions">
+          <button class="btn" type="submit">Submit</button>
+          <a href="{{ url_for('quiz_end') }}" class="btn secondary" style="text-decoration:none;">End</a>
+        </div>
+      </form>
+
+    {% else %}
+
+      <!-- Feedback / Explanation / Hint -->
+      {% if feedback %}
+      <div class="card" style="margin-top:.6rem">
+
+        {{ feedback }}
+
+        <!-- Explanation toggle -->
+        {% if explanation %}
+        <div class="explanation-wrapper" style="margin-top:.5rem;">
+
+          <button class="toggle-exp-btn" type="button" onclick="toggleExplanation()">
+            📘 Show Explanation
+          </button>
+
+          <div id="explanationBox" class="explanation-box" style="display:none;">
+            {{ explanation }}
+          </div>
+
+        </div>
+        {% endif %}
+
+        <!-- Hint -->
+        {% if result.hint %}
+        <div class="hint">{{ result.hint }}</div>
+        {% endif %}
+
+      </div>
+
+      {% if was_correct %}
+        <script src="{{ url_for('static', filename='confetti.js') }}"></script>
+        <script> if (window.launchConfetti) window.launchConfetti(); </script>
+      {% endif %}
+      {% endif %}
+
+      <!-- Next / Finish -->
+      <div class="actions">
+        <form method="POST" action="/quiz/next">
+          <button class="btn" type="submit">Next ➜</button>
+        </form>
+        <a href="{{ url_for('quiz_end') }}" class="btn secondary" style="text-decoration:none;">Finish</a>
+      </div>
+
+    {% endif %}
+  {% endif %}
+
+</div>
+
+<!-- Explanation toggle script -->
+<script>
+  function toggleExplanation() {
+    const box = document.getElementById("explanationBox");
+    const btn = document.querySelector(".toggle-exp-btn");
+
+    if (box.style.display === "none") {
+      box.style.display = "block";
+      btn.textContent = "📘 Hide Explanation";
+    } else {
+      box.style.display = "none";
+      btn.textContent = "📘 Show Explanation";
+    }
+  }
+</script>
+
+{% endblock %}
