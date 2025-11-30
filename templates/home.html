@@ -127,23 +127,18 @@ Conclusion: r
 
 <style>
     .collapse-card {
-        /* Fallback to existing card color if --bg-secondary is not defined */
+        /* Prefer theme bg-secondary with fallback to card */
         background: var(--bg-secondary, var(--card));
         border-radius: 10px;
         margin: 15px 0;
         overflow: hidden;
         box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        /* Ensure text inside the accordion follows theme text color by default */
-        color: var(--text);
     }
 
     .collapse-btn {
         width: 100%;
         text-align: left;
-        /* default to brand colour if the project hasn't defined --accent */
         background: var(--accent, var(--brand));
-        /* button text should have high contrast; prefer card color (usually white for light mode)
-           but fall back to a semantic contrast color by using color-mix if needed */
         color: color-mix(in srgb, var(--card) 90%, var(--text) 10%);
         padding: 15px;
         font-size: 1.05rem;
@@ -160,9 +155,9 @@ Conclusion: r
         padding: 15px 20px;
         display: none;
         animation: fadeIn 0.35s ease;
-        /* Ensure content text follows theme variables and is readable in both modes */
+        /* Make content text follow theme variable so it's readable in either mode */
         color: var(--text);
-        background: var(--card); /* keep the content area on a card background for legibility */
+        background: var(--card);
     }
 
     .symbol-table {
@@ -174,14 +169,12 @@ Conclusion: r
     .symbol-table th, .symbol-table td {
         border-bottom: 1px solid var(--border);
         padding: 10px;
-        /* make sure rows inherit theme text colour */
         color: var(--text);
     }
 
     .symbol-table th {
         background: var(--bg-tertiary, color-mix(in srgb, var(--card) 94%, var(--brand) 6%));
         font-weight: bold;
-        color: var(--text);
     }
 
     @keyframes fadeIn {
