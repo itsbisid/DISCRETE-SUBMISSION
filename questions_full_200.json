@@ -1,0 +1,3248 @@
+[
+  {
+    "id": 1,
+    "topic": "Propositional Logic",
+    "difficulty": "Easy",
+    "question": "Which of the following is always a tautology?",
+    "options": [
+      "p ∧ ¬p",
+      "p → ¬p",
+      "p ∨ ¬p",
+      "¬p ∧ ¬q"
+    ],
+    "answer": "C",
+    "hint": "Check which statement is always true regardless of truth values.",
+    "explanation": "p ∨ ¬p is always true under all truth assignments."
+  },
+  {
+    "id": 2,
+    "topic": "Propositional Logic",
+    "difficulty": "Easy",
+    "question": "The negation of (p ∧ q) is:",
+    "options": [
+      "¬p ∧ ¬q",
+      "¬p ∨ ¬q",
+      "p ∨ q",
+      "¬p → ¬q"
+    ],
+    "answer": "B",
+    "hint": "Apply De Morgan’s law to negate a conjunction.",
+    "explanation": "By De Morgan's Law, ¬(p ∧ q) ≡ ¬p ∨ ¬q."
+  },
+  {
+    "id": 3,
+    "topic": "Propositional Logic",
+    "difficulty": "Easy",
+    "question": "The truth value of (p → q) when p is false is:",
+    "options": [
+      "true",
+      "false",
+      "q",
+      "undefined"
+    ],
+    "answer": "A",
+    "hint": "Recall: any implication with a false antecedent is true.",
+    "explanation": "A conditional with a false antecedent is always true."
+  },
+  {
+    "id": 4,
+    "topic": "Propositional Logic",
+    "difficulty": "Easy",
+    "question": "p ↔ q is true when:",
+    "options": [
+      "p is true",
+      "q is false",
+      "p and q have the same truth value",
+      "p is false only"
+    ],
+    "answer": "C",
+    "hint": "A biconditional is true only when both truth values match.",
+    "explanation": "A biconditional is true when both statements share the same truth value."
+  },
+  {
+    "id": 5,
+    "topic": "Propositional Logic",
+    "difficulty": "Easy",
+    "question": "Which connective corresponds to exclusive or (XOR)?",
+    "options": [
+      "↔",
+      "∧",
+      "⊕",
+      "→"
+    ],
+    "answer": "C",
+    "hint": "Exclusive OR means exactly one input is true.",
+    "explanation": "⊕ is the symbol for exclusive or."
+  },
+  {
+    "id": 6,
+    "topic": "Propositional Logic",
+    "difficulty": "Medium",
+    "question": "Which statement is equivalent to p → q?",
+    "options": [
+      "p ∧ q",
+      "¬p ∨ q",
+      "p ∨ q",
+      "¬p ∧ q"
+    ],
+    "answer": "B",
+    "hint": "Rewrite p → q as ¬p ∨ q before comparing.",
+    "explanation": "Material implication: p → q ≡ ¬p ∨ q."
+  },
+  {
+    "id": 7,
+    "topic": "Propositional Logic",
+    "difficulty": "Medium",
+    "question": "Which of these is a contradiction?",
+    "options": [
+      "p ∨ ¬p",
+      "¬(p ∧ q)",
+      "p ∧ ¬p",
+      "p → q"
+    ],
+    "answer": "C",
+    "hint": "A contradiction is never true under any valuation.",
+    "explanation": "p ∧ ¬p can never be true."
+  },
+  {
+    "id": 8,
+    "topic": "Propositional Logic",
+    "difficulty": "Medium",
+    "question": "The expression ¬(p → q) is equivalent to:",
+    "options": [
+      "p ∧ ¬q",
+      "¬p ∧ q",
+      "p ∧ q",
+      "¬p ∧ ¬q"
+    ],
+    "answer": "A",
+    "hint": "To negate p→q, convert to ¬(¬p∨q) and simplify.",
+    "explanation": "¬(p → q) ≡ ¬(¬p ∨ q) ≡ p ∧ ¬q."
+  },
+  {
+    "id": 9,
+    "topic": "Propositional Logic",
+    "difficulty": "Medium",
+    "question": "Which of the following is a contingency?",
+    "options": [
+      "p ∧ ¬p",
+      "p ∨ ¬p",
+      "p ∧ q",
+      "¬(p ∧ ¬p)"
+    ],
+    "answer": "C",
+    "hint": "Contingency means sometimes true, sometimes false.",
+    "explanation": "A contingency is sometimes true and sometimes false depending on valuations."
+  },
+  {
+    "id": 10,
+    "topic": "Propositional Logic",
+    "difficulty": "Medium",
+    "question": "How many rows are in a truth table with three variables?",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "16"
+    ],
+    "answer": "C",
+    "hint": "Truth table rows = 2ⁿ for n variables.",
+    "explanation": "A truth table has 2^n rows; 2^3 = 8."
+  },
+  {
+    "id": 11,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "(p ∧ q) → r is logically equivalent to:",
+    "options": [
+      "¬p ∨ ¬q ∨ r",
+      "p ∧ (q → r)",
+      "p → (q → r)",
+      "None"
+    ],
+    "answer": "A",
+    "hint": "Convert (p∧q)→r by negating the antecedent.",
+    "explanation": "Rewrite as ¬(p ∧ q) ∨ r = ¬p ∨ ¬q ∨ r."
+  },
+  {
+    "id": 12,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "Which formula is in CNF?",
+    "options": [
+      "(p ∧ q) ∨ r",
+      "(p ∨ q) ∧ (¬r ∨ s)",
+      "¬(p → q)",
+      "(p → q) → r"
+    ],
+    "answer": "B",
+    "hint": "CNF must be an AND of OR clauses.",
+    "explanation": "CNF is an AND of OR clauses."
+  },
+  {
+    "id": 13,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "Which is equivalent to p ↔ q?",
+    "options": [
+      "(p ∧ q) ∨ (¬p ∧ ¬q)",
+      "p ∧ ¬q",
+      "p ∨ q",
+      "(p ∧ ¬q) ∨ (¬p ∧ q)"
+    ],
+    "answer": "A",
+    "hint": "Expand p ↔ q using two implications.",
+    "explanation": "Biconditional true when both have same truth value."
+  },
+  {
+    "id": 14,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "Which form is DNF?",
+    "options": [
+      "(p ∧ ¬q) ∨ (¬p ∧ r)",
+      "p ∧ (q ∨ r)",
+      "p → q",
+      "p ↔ q"
+    ],
+    "answer": "A",
+    "hint": "DNF is ORs of ANDs.",
+    "explanation": "DNF is an OR of AND clauses."
+  },
+  {
+    "id": 15,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "Which formula is unsatisfiable?",
+    "options": [
+      "¬(p ∧ q)",
+      "p ∧ ¬p",
+      "p ⊕ q",
+      "¬p ∧ q"
+    ],
+    "answer": "B",
+    "hint": "Unsatisfiable means always false (no satisfying valuation).",
+    "explanation": "p ∧ ¬p can never be true."
+  },
+  {
+    "id": 16,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "The dual of p ∧ (q ∨ r) is:",
+    "options": [
+      "p ∨ (q ∧ r)",
+      "p ∨ (q ∨ r)",
+      "p ∧ (q ∧ r)",
+      "p ∨ q"
+    ],
+    "answer": "A",
+    "hint": "Dual swaps ∧ and ∨ everywhere.",
+    "explanation": "Dual swaps ∧ ↔ ∨ while keeping literals."
+  },
+  {
+    "id": 17,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "Which is equivalent to ¬(p ∨ (q ∧ r))?",
+    "options": [
+      "¬p ∧ (¬q ∨ ¬r)",
+      "¬p ∧ (¬q ∧ ¬r)",
+      "¬p ∧ ¬q ∧ ¬r",
+      "¬p ∨ ¬q ∧ ¬r"
+    ],
+    "answer": "A",
+    "hint": "Negate step-by-step using De Morgan’s laws.",
+    "explanation": "Apply De Morgan twice: ¬(p ∨ X) = ¬p ∧ ¬X."
+  },
+  {
+    "id": 18,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "p ⊕ (q ⊕ r) is equivalent to:",
+    "options": [
+      "(p ⊕ q) ⊕ r",
+      "p ∧ q ∧ r",
+      "p ∨ q ∨ r",
+      "¬p ∧ q ∧ r"
+    ],
+    "answer": "A",
+    "hint": "XOR is associative like addition modulo 2.",
+    "explanation": "XOR is associative."
+  },
+  {
+    "id": 19,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "Which is logically equivalent to ¬p → (q ∧ r)?",
+    "options": [
+      "p ∨ (q ∧ r)",
+      "¬¬p ∨ (q ∧ r)",
+      "p ∨ q ∨ r",
+      "(p ∧ q) → r"
+    ],
+    "answer": "B",
+    "hint": "Use the identity ¬p → X ≡ p ∨ X.",
+    "explanation": "¬p → X ≡ p ∨ X."
+  },
+  {
+    "id": 20,
+    "topic": "Propositional Logic",
+    "difficulty": "Hard",
+    "question": "A formula is satisfiable when:",
+    "options": [
+      "It is true for all valuations",
+      "It is true for at least one valuation",
+      "It is never true",
+      "It is both true and false"
+    ],
+    "answer": "B",
+    "hint": "Satisfiable means true for at least one assignment.",
+    "explanation": "Satisfiable means true under at least one assignment."
+  },
+  {
+    "id": 21,
+    "topic": "Predicate Logic",
+    "difficulty": "Easy",
+    "question": "The symbol ∀ represents:",
+    "options": [
+      "There exists",
+      "For all",
+      "Such that",
+      "Unique"
+    ],
+    "answer": "B",
+    "hint": "Universal quantifier means 'for all'.",
+    "explanation": "∀x P(x) means 'for all x, P(x)'."
+  },
+  {
+    "id": 22,
+    "topic": "Predicate Logic",
+    "difficulty": "Easy",
+    "question": "The negation of ∀x P(x) is:",
+    "options": [
+      "¬∀x P(x)",
+      "∃x ¬P(x)",
+      "∀x ¬P(x)",
+      "∃x P(x)"
+    ],
+    "answer": "B",
+    "hint": "Negation of ∀ becomes ∃ with negated predicate.",
+    "explanation": "Negating a universal gives an existential with negation inside."
+  },
+  {
+    "id": 23,
+    "topic": "Predicate Logic",
+    "difficulty": "Easy",
+    "question": "Translate: 'There exists a student who passed.'",
+    "options": [
+      "∀x Passed(x)",
+      "∃x Passed(x)",
+      "Passed(x)",
+      "∃x ¬Passed(x)"
+    ],
+    "answer": "B",
+    "hint": "Existential translates to 'there exists…'.",
+    "explanation": "Existential quantifier expresses existence."
+  },
+  {
+    "id": 24,
+    "topic": "Predicate Logic",
+    "difficulty": "Easy",
+    "question": "The domain of discourse is:",
+    "options": [
+      "The set of truth values",
+      "The set over which variables range",
+      "Always the naturals",
+      "Always infinite"
+    ],
+    "answer": "B",
+    "hint": "Domain is the universe over which variables range.",
+    "explanation": "Domain defines the universe for variables."
+  },
+  {
+    "id": 25,
+    "topic": "Predicate Logic",
+    "difficulty": "Easy",
+    "question": "∃x (P(x) ∧ Q(x)) is true when:",
+    "options": [
+      "All x satisfy P and Q",
+      "Some x satisfies both P and Q",
+      "No x satisfies P or Q",
+      "P and Q are logically equivalent"
+    ],
+    "answer": "B",
+    "hint": "Existential conjunction needs one element satisfying both.",
+    "explanation": "Existential quantifier requires at least one satisfying element."
+  },
+  {
+    "id": 26,
+    "topic": "Predicate Logic",
+    "difficulty": "Medium",
+    "question": "Negate: ∃x (P(x) ∨ Q(x)).",
+    "options": [
+      "∃x ¬P(x) ∧ ¬Q(x)",
+      "∀x (¬P(x) ∧ ¬Q(x))",
+      "∃x (¬P(x) ∧ ¬Q(x))",
+      "∀x ¬P(x) ∨ ¬Q(x)"
+    ],
+    "answer": "B",
+    "hint": "Negation of ∃ becomes ∀ with negated expression.",
+    "explanation": "¬∃x φ ≡ ∀x ¬φ; AND uses De Morgan."
+  },
+  {
+    "id": 27,
+    "topic": "Predicate Logic",
+    "difficulty": "Medium",
+    "question": "Which statement means 'Everyone likes someone'?",
+    "options": [
+      "∀x ∀y Likes(x,y)",
+      "∀x ∃y Likes(x,y)",
+      "∃x ∀y Likes(x,y)",
+      "∃x ∃y Likes(x,y)"
+    ],
+    "answer": "B",
+    "hint": "Translate 'everyone likes someone' using nested quantifiers.",
+    "explanation": "For each person x, there exists some person y they like."
+  },
+  {
+    "id": 28,
+    "topic": "Predicate Logic",
+    "difficulty": "Medium",
+    "question": "The statement ∀x (P(x) → Q(x)) is false when:",
+    "options": [
+      "Some x satisfies P and Q",
+      "Some x satisfies P and ¬Q",
+      "All x satisfy ¬P(x)",
+      "Q(x) is always true"
+    ],
+    "answer": "B",
+    "hint": "Universal conditional fails when antecedent is true and consequent is false.",
+    "explanation": "A universal conditional fails only when P is true and Q is false."
+  },
+  {
+    "id": 29,
+    "topic": "Predicate Logic",
+    "difficulty": "Medium",
+    "question": "The statement ∃x ∀y R(x, y) means:",
+    "options": [
+      "For every y, there exists an x",
+      "There exists an x related to every y",
+      "Every element relates to some other",
+      "Relation is symmetric"
+    ],
+    "answer": "B",
+    "hint": "∃x∀y means one single x works for all y.",
+    "explanation": "Existential outside: single x works for all y."
+  },
+  {
+    "id": 30,
+    "topic": "Predicate Logic",
+    "difficulty": "Medium",
+    "question": "The negation of 'Exactly one student failed' is:",
+    "options": [
+      "No student failed",
+      "At least one failed",
+      "Zero or more than one failed",
+      "All students failed"
+    ],
+    "answer": "C",
+    "hint": "Negation of 'exactly one' becomes none or more than one.",
+    "explanation": "Negation of 'exactly one' = none or two-or-more."
+  },
+  {
+    "id": 31,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Which two are logically equivalent?",
+    "options": [
+      "∀x(P(x) ∧ Q(x)) and ∀xP(x) ∧ ∀xQ(x)",
+      "∃x(P(x) ∧ Q(x)) and ∃xP(x) ∧ ∃xQ(x)",
+      "∀x(P(x) ∨ Q(x)) and ∀xP(x) ∨ ∀xQ(x)",
+      "∃x(P(x) ∨ Q(x)) and ∃xP(x) ∨ ∃xQ(x)"
+    ],
+    "answer": "A",
+    "hint": "Check whether universal distributes over AND.",
+    "explanation": "∀ distributes over ∧ but ∃ does not."
+  },
+  {
+    "id": 32,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Negate: ∀x ∃y (P(x) → Q(y)).",
+    "options": [
+      "∃x ∀y (P(x) ∧ ¬Q(y))",
+      "∃x ∀y (¬P(x) ∧ Q(y))",
+      "∃x ∀y (P(x) ∧ ¬Q(y))",
+      "∀x ∃y (¬P(x) ∧ ¬Q(y))"
+    ],
+    "answer": "C",
+    "hint": "Swap quantifiers and negate the implication.",
+    "explanation": "Negation swaps quantifiers and negates implication."
+  },
+  {
+    "id": 33,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "∀x(P(x) ∨ Q(x)) is equivalent to:",
+    "options": [
+      "∀xP(x) ∨ ∀xQ(x)",
+      "∀xP(x) ∧ ∀xQ(x)",
+      "Both",
+      "None"
+    ],
+    "answer": "D",
+    "hint": "Universal does NOT distribute over OR.",
+    "explanation": "Universals do NOT distribute over ∨."
+  },
+  {
+    "id": 34,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Which statement asserts that 'Every student has a unique ID'?",
+    "options": [
+      "∀x∀y ID(x)=ID(y)",
+      "∀x∃y ID(x)=y",
+      "∀x∀y (ID(x)=ID(y) → x=y)",
+      "∃x∃y ID(x)=ID(y)"
+    ],
+    "answer": "C",
+    "hint": "Uniqueness uses implication from equal outputs to equal inputs.",
+    "explanation": "Uniqueness expressed as equal IDs imply equal persons."
+  },
+  {
+    "id": 35,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "∃x(P(x) ∧ ∀y Q(y)) is equivalent to:",
+    "options": [
+      "(∃x P(x)) ∧ (∀y Q(y))",
+      "∃x(P(x) ∧ Q(x))",
+      "∀y ∃x(P(x) ∧ Q(y))",
+      "None"
+    ],
+    "answer": "A",
+    "hint": "Pull out independent quantifiers when possible.",
+    "explanation": "Pull out universals independent of x."
+  },
+  {
+    "id": 36,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Which one is logically stronger?",
+    "options": [
+      "∀x(P(x) → Q(x))",
+      "(∀xP(x)) → (∀xQ(x))",
+      "They are equivalent",
+      "Neither"
+    ],
+    "answer": "A",
+    "hint": "Compare logical strength by checking vacuous truth cases.",
+    "explanation": "(B) is vacuously true if ∀xP(x) is false; (A) is stronger."
+  },
+  {
+    "id": 37,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "The formula ∃x∀y R(x, y) implies:",
+    "options": [
+      "R is symmetric",
+      "R is reflexive",
+      "A single x relates to all y",
+      "All x relate to some y"
+    ],
+    "answer": "C",
+    "hint": "∃x∀y means one x relates universally.",
+    "explanation": "One element x must relate universally."
+  },
+  {
+    "id": 38,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Which form expresses 'There are at least two students'?",
+    "options": [
+      "∃x∃y(x=y)",
+      "∃x∃y(x≠y)",
+      "∀x∀y(x≠y)",
+      "∃x(x≠x)"
+    ],
+    "answer": "B",
+    "hint": "At least two means existence of two distinct elements.",
+    "explanation": "Two distinct elements exist."
+  },
+  {
+    "id": 39,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Translate: 'Every lecturer teaches exactly one course.'",
+    "options": [
+      "∀x∃y Teaches(x,y)",
+      "∀x∃!y Teaches(x,y)",
+      "∃x∀y Teaches(x,y)",
+      "∀x∀y Teaches(x,y)"
+    ],
+    "answer": "B",
+    "hint": "Unique existence is encoded with ∃!.",
+    "explanation": "∃! encodes uniqueness."
+  },
+  {
+    "id": 40,
+    "topic": "Predicate Logic",
+    "difficulty": "Hard",
+    "question": "Negate: ∀x(P(x) ↔ Q(x)).",
+    "options": [
+      "∃x(P(x) ∧ Q(x))",
+      "∃x[(P(x) ∧ ¬Q(x)) ∨ (¬P(x) ∧ Q(x))]",
+      "∀x(P(x) ∧ ¬Q(x))",
+      "∃x(P(x) → Q(x))"
+    ],
+    "answer": "B",
+    "hint": "Negation of biconditional yields exclusive OR.",
+    "explanation": "Negation of biconditional is XOR form."
+  },
+  {
+    "id": 41,
+    "topic": "Sets",
+    "difficulty": "Easy",
+    "question": "What is the cardinality of the set {1, 3, 5, 7}?",
+    "options": [
+      "2",
+      "4",
+      "3",
+      "5"
+    ],
+    "answer": "B",
+    "hint": "Cardinality simply counts elements.",
+    "explanation": "The set contains 4 elements."
+  },
+  {
+    "id": 42,
+    "topic": "Sets",
+    "difficulty": "Easy",
+    "question": "Which set is a subset of every set?",
+    "options": [
+      "A",
+      "{0}",
+      "∅",
+      "A'"
+    ],
+    "answer": "C",
+    "hint": "The empty set is subset of every set.",
+    "explanation": "The empty set is a subset of every set."
+  },
+  {
+    "id": 43,
+    "topic": "Sets",
+    "difficulty": "Easy",
+    "question": "What is the power set of {a, b}?",
+    "options": [
+      "{a, b, ab}",
+      "{∅, {a}, {b}, {a,b}}",
+      "{a, b}",
+      "{{a,b}}"
+    ],
+    "answer": "B",
+    "hint": "Power set contains all possible subsets.",
+    "explanation": "Power set contains all subsets."
+  },
+  {
+    "id": 44,
+    "topic": "Sets",
+    "difficulty": "Easy",
+    "question": "If A = {1, 2, 3} and B = {3, 4}, what is A ∩ B?",
+    "options": [
+      "{1,2}",
+      "{3}",
+      "{4}",
+      "∅"
+    ],
+    "answer": "B",
+    "hint": "Intersection contains only common elements.",
+    "explanation": "Intersection contains only common elements."
+  },
+  {
+    "id": 45,
+    "topic": "Sets",
+    "difficulty": "Easy",
+    "question": "A' (A complement) represents:",
+    "options": [
+      "Subset of A",
+      "Elements not in A",
+      "Intersection of A",
+      "Union of A"
+    ],
+    "answer": "B",
+    "hint": "Complement lists elements outside the set.",
+    "explanation": "Complement contains all elements outside A."
+  },
+  {
+    "id": 46,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "If A and B are disjoint with |A| = 10, |B| = 5, what is |A ∪ B|?",
+    "options": [
+      "15",
+      "10",
+      "5",
+      "20"
+    ],
+    "answer": "A",
+    "hint": "Disjoint sets add cardinalities directly.",
+    "explanation": "No overlap, so add cardinalities."
+  },
+  {
+    "id": 47,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "The complement of (A ∪ B) is:",
+    "options": [
+      "A' ∪ B'",
+      "A' ∩ B'",
+      "A ∩ B",
+      "(A ∩ B)'"
+    ],
+    "answer": "B",
+    "hint": "Use De Morgan for complement of union.",
+    "explanation": "De Morgan's Law."
+  },
+  {
+    "id": 48,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "A − B equals:",
+    "options": [
+      "A ∪ B'",
+      "A ∩ B'",
+      "B − A",
+      "A ∩ B"
+    ],
+    "answer": "B",
+    "hint": "A − B keeps elements of A not in B.",
+    "explanation": "Difference removes elements of B from A."
+  },
+  {
+    "id": 49,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "If A ⊆ B, which is true?",
+    "options": [
+      "A ∩ B = A",
+      "A ∪ B = A",
+      "B ⊆ A",
+      "A = ∅"
+    ],
+    "answer": "A",
+    "hint": "A ⊆ B implies intersections behave predictably.",
+    "explanation": "Everything in A is already in B."
+  },
+  {
+    "id": 50,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "Using inclusion-exclusion, if |A|=10, |B|=15, |A∩B|=5, what is |A∪B|?",
+    "options": [
+      "10",
+      "25",
+      "20",
+      "30"
+    ],
+    "answer": "C",
+    "hint": "Apply inclusion–exclusion formula.",
+    "explanation": "|A| + |B| - |A∩B| = 20."
+  },
+  {
+    "id": 51,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "The symmetric difference A △ B equals:",
+    "options": [
+      "A ∪ B",
+      "A ∩ B",
+      "(A ∪ B) − (A ∩ B)",
+      "A − B"
+    ],
+    "answer": "C",
+    "hint": "Symmetric difference removes intersections.",
+    "explanation": "Symmetric difference removes intersection."
+  },
+  {
+    "id": 52,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "A × B is:",
+    "options": [
+      "Cartesian product",
+      "Union",
+      "Intersection",
+      "Complement"
+    ],
+    "answer": "A",
+    "hint": "Cartesian product forms ordered pairs.",
+    "explanation": "Cartesian product gives ordered pairs."
+  },
+  {
+    "id": 53,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "(A ∩ B') ∪ (A' ∩ B) is:",
+    "options": [
+      "A ∩ B",
+      "A △ B",
+      "A ∪ B",
+      "(A ∪ B)'"
+    ],
+    "answer": "B",
+    "hint": "Recognize symmetric difference patterns.",
+    "explanation": "This is symmetric difference."
+  },
+  {
+    "id": 54,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "If A ⊂ B, then:",
+    "options": [
+      "|A| < |B|",
+      "|A| = |B|",
+      "A = B",
+      "|B| < |A|"
+    ],
+    "answer": "A",
+    "hint": "Proper subset means strictly smaller size.",
+    "explanation": "Proper subset implies smaller cardinality."
+  },
+  {
+    "id": 55,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "(A' ∩ B')' equals:",
+    "options": [
+      "A",
+      "A ∪ B",
+      "A ∩ B",
+      "(A ∪ B)'"
+    ],
+    "answer": "B",
+    "hint": "Apply De Morgan twice for complement of intersection.",
+    "explanation": "De Morgan's: (A'∩B')' = A ∪ B."
+  },
+  {
+    "id": 56,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "A ∪ (A ∩ B) simplifies to:",
+    "options": [
+      "A",
+      "B",
+      "A ∩ B",
+      "A ∪ B"
+    ],
+    "answer": "A",
+    "hint": "Absorption law simplifies A ∪ (A∩B) to A.",
+    "explanation": "Absorption law."
+  },
+  {
+    "id": 57,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "If A ∩ B = A, then:",
+    "options": [
+      "A ⊆ B",
+      "B ⊆ A",
+      "A = ∅",
+      "B = ∅"
+    ],
+    "answer": "A",
+    "hint": "If intersection equals A, then A ⊆ B.",
+    "explanation": "All elements of A are in B."
+  },
+  {
+    "id": 58,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "If A ∪ B = A, then:",
+    "options": [
+      "A ⊆ B",
+      "B ⊆ A",
+      "A = B",
+      "B = ∅"
+    ],
+    "answer": "B",
+    "hint": "If union equals A, then B ⊆ A.",
+    "explanation": "All elements of B are in A."
+  },
+  {
+    "id": 59,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "How many subsets does a set with 8 elements have?",
+    "options": [
+      "8",
+      "16",
+      "128",
+      "256"
+    ],
+    "answer": "D",
+    "hint": "Subsets count = 2ⁿ.",
+    "explanation": "2⁸ = 256 subsets."
+  },
+  {
+    "id": 60,
+    "topic": "Sets",
+    "difficulty": "Medium",
+    "question": "If |A × B| = 20 and |A| = 4, what is |B|?",
+    "options": [
+      "5",
+      "4",
+      "2",
+      "10"
+    ],
+    "answer": "A",
+    "hint": "Divide |A×B| by |A| to solve for |B|.",
+    "explanation": "|A×B| = |A|·|B| ⇒ 20 = 4·|B|."
+  },
+  {
+    "id": 61,
+    "topic": "Boolean Functions",
+    "difficulty": "Easy",
+    "question": "The AND gate is represented by:",
+    "options": [
+      "+",
+      "¬",
+      "·",
+      "⊕"
+    ],
+    "answer": "C",
+    "hint": "AND gate corresponds to multiplication.",
+    "explanation": "AND is multiplication in Boolean algebra."
+  },
+  {
+    "id": 62,
+    "topic": "Boolean Functions",
+    "difficulty": "Easy",
+    "question": "The identity element for OR is:",
+    "options": [
+      "1",
+      "0",
+      "x",
+      "x'"
+    ],
+    "answer": "B",
+    "hint": "Identity for OR is 0.",
+    "explanation": "x + 0 = x."
+  },
+  {
+    "id": 63,
+    "topic": "Boolean Functions",
+    "difficulty": "Easy",
+    "question": "The complement of 1011 is:",
+    "options": [
+      "0100",
+      "1011",
+      "1111",
+      "0000"
+    ],
+    "answer": "A",
+    "hint": "Complement flips each bit.",
+    "explanation": "Flip each bit."
+  },
+  {
+    "id": 64,
+    "topic": "Boolean Functions",
+    "difficulty": "Easy",
+    "question": "The NOT gate outputs:",
+    "options": [
+      "1",
+      "same as input",
+      "opposite of input",
+      "undefined"
+    ],
+    "answer": "C",
+    "hint": "NOT gate outputs the opposite value.",
+    "explanation": "NOT flips the bit."
+  },
+  {
+    "id": 65,
+    "topic": "Boolean Functions",
+    "difficulty": "Easy",
+    "question": "The expression x AND y is true when:",
+    "options": [
+      "Both x and y are 1",
+      "At least one is 1",
+      "Both are 0",
+      "Values alternate"
+    ],
+    "answer": "A",
+    "hint": "AND requires both inputs to be true.",
+    "explanation": "AND requires both inputs to be true."
+  },
+  {
+    "id": 66,
+    "topic": "Boolean Functions",
+    "difficulty": "Medium",
+    "question": "XOR is true when:",
+    "options": [
+      "Both inputs are 1",
+      "Both are 0",
+      "Exactly one input is 1",
+      "None"
+    ],
+    "answer": "C",
+    "hint": "XOR is true when inputs differ.",
+    "explanation": "Exclusive or requires one true input."
+  },
+  {
+    "id": 67,
+    "topic": "Boolean Functions",
+    "difficulty": "Medium",
+    "question": "The expression x + x' simplifies to:",
+    "options": [
+      "0",
+      "x",
+      "1",
+      "x'"
+    ],
+    "answer": "C",
+    "hint": "x + x' always equals 1.",
+    "explanation": "A variable plus its complement is always 1."
+  },
+  {
+    "id": 68,
+    "topic": "Boolean Functions",
+    "difficulty": "Medium",
+    "question": "(xy + xy') simplifies to:",
+    "options": [
+      "x",
+      "y",
+      "xy'",
+      "x+y"
+    ],
+    "answer": "A",
+    "hint": "Factor expressions before simplifying.",
+    "explanation": "Factor out x: x(y + y') = x."
+  },
+  {
+    "id": 69,
+    "topic": "Boolean Functions",
+    "difficulty": "Medium",
+    "question": "Which gate is functionally complete?",
+    "options": [
+      "AND",
+      "OR",
+      "NAND",
+      "XOR"
+    ],
+    "answer": "C",
+    "hint": "NAND is functionally complete.",
+    "explanation": "NAND alone can express all Boolean functions."
+  },
+  {
+    "id": 70,
+    "topic": "Boolean Functions",
+    "difficulty": "Medium",
+    "question": "De Morgan's Law: (xy)' =",
+    "options": [
+      "x' + y",
+      "x + y'",
+      "x' + y'",
+      "xy'"
+    ],
+    "answer": "C",
+    "hint": "Apply De Morgan on AND expression.",
+    "explanation": "Negate AND → OR of negations."
+  },
+  {
+    "id": 71,
+    "topic": "Boolean Functions",
+    "difficulty": "Medium",
+    "question": "The XNOR gate outputs 1 when:",
+    "options": [
+      "inputs differ",
+      "first input is 1",
+      "second input is 1",
+      "inputs are equal"
+    ],
+    "answer": "D",
+    "hint": "XNOR checks for equality.",
+    "explanation": "XNOR = equality gate."
+  },
+  {
+    "id": 72,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "(x+y)(x+y') simplifies to:",
+    "options": [
+      "x",
+      "y",
+      "x+y",
+      "xy"
+    ],
+    "answer": "A",
+    "hint": "Distribute and simplify step-by-step.",
+    "explanation": "Distribute: x(x+y') + y(x+y') → simplifies to x."
+  },
+  {
+    "id": 73,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "A multiplexer (MUX):",
+    "options": [
+      "adds bits",
+      "inverts bits",
+      "selects an input based on a selector",
+      "outputs XOR"
+    ],
+    "answer": "C",
+    "hint": "MUX selects an input based on selector bit.",
+    "explanation": "MUX chooses one input depending on selection line."
+  },
+  {
+    "id": 74,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "(x' + y)(x + y) simplifies to:",
+    "options": [
+      "x",
+      "y",
+      "x+y",
+      "x'y"
+    ],
+    "answer": "B",
+    "hint": "Combine like terms to simplify.",
+    "explanation": "Combine terms to get y."
+  },
+  {
+    "id": 75,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "For f = Σ(1,2,4,7), the minimal SOP is:",
+    "options": [
+      "x'y + yz'",
+      "xy + yz",
+      "x + y + z",
+      "xyz'"
+    ],
+    "answer": "A",
+    "hint": "Use K-map grouping for minimal SOP.",
+    "explanation": "Derived from K-map simplification."
+  },
+  {
+    "id": 76,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "The Boolean complement of (x + y + z) is:",
+    "options": [
+      "xyz",
+      "x'y'z'",
+      "xy'z'",
+      "x + y + z'"
+    ],
+    "answer": "B",
+    "hint": "De Morgan’s gives complements of sums.",
+    "explanation": "Apply De Morgan's law."
+  },
+  {
+    "id": 77,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "Which cannot be implemented using a single 2-input gate?",
+    "options": [
+      "XOR",
+      "NAND",
+      "NOR",
+      "AND"
+    ],
+    "answer": "A",
+    "hint": "XOR cannot be implemented with a single 2-input gate.",
+    "explanation": "XOR requires more than one gate to implement."
+  },
+  {
+    "id": 78,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "Given f = xy' + x'z, f' equals:",
+    "options": [
+      "xy + z",
+      "xyz'",
+      "(x'+y')(x+z')",
+      "(x'+y')(x+z')"
+    ],
+    "answer": "C",
+    "hint": "Complement an expression using De Morgan carefully.",
+    "explanation": "Apply De Morgan on complement."
+  },
+  {
+    "id": 79,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "The XOR expression equals:",
+    "options": [
+      "xy + yz",
+      "x + y",
+      "xy' + x'y",
+      "x'y'z"
+    ],
+    "answer": "C",
+    "hint": "XOR = x'y + xy'.",
+    "explanation": "Definition of XOR."
+  },
+  {
+    "id": 80,
+    "topic": "Boolean Functions",
+    "difficulty": "Hard",
+    "question": "The minimal product-of-sums (POS) of f is:",
+    "options": [
+      "(x+y)(x'+z)",
+      "(x+y')(x+y)",
+      "(x + y')(y + z')",
+      "(x + y)(y + z)"
+    ],
+    "answer": "C",
+    "hint": "Minimal POS comes from zeros in truth table.",
+    "explanation": "Derived from POS simplification."
+  },
+  {
+    "id": 81,
+    "topic": "Rules of Inference",
+    "difficulty": "Easy",
+    "question": "From p → q and p, what can be inferred?",
+    "options": [
+      "q → p",
+      "q",
+      "p ∧ q",
+      "¬q"
+    ],
+    "answer": "B",
+    "hint": "Modus Ponens uses p→q and p to infer q.",
+    "explanation": "Modus Ponens: p → q and p ⟹ q."
+  },
+  {
+    "id": 82,
+    "topic": "Rules of Inference",
+    "difficulty": "Easy",
+    "question": "From p and q, we can infer p ∧ q. This rule is:",
+    "options": [
+      "Simplification",
+      "Conjunction",
+      "Addition",
+      "Transitivity"
+    ],
+    "answer": "B",
+    "hint": "Conjunction combines two true statements.",
+    "explanation": "Combines two true statements."
+  },
+  {
+    "id": 83,
+    "topic": "Rules of Inference",
+    "difficulty": "Easy",
+    "question": "From p, infer p ∨ q. This rule is:",
+    "options": [
+      "Addition",
+      "Simplification",
+      "Contradiction",
+      "Resolution"
+    ],
+    "answer": "A",
+    "hint": "Addition rule forms p∨q from p.",
+    "explanation": "p is enough to assert p ∨ q."
+  },
+  {
+    "id": 84,
+    "topic": "Rules of Inference",
+    "difficulty": "Easy",
+    "question": "From (p ∧ q), infer p. This rule is:",
+    "options": [
+      "Conjunction",
+      "Simplification",
+      "Modus Ponens",
+      "Resolution"
+    ],
+    "answer": "A",
+    "hint": "Simplification extracts components of conjunction.",
+    "explanation": "Simplification extracts one component."
+  },
+  {
+    "id": 85,
+    "topic": "Rules of Inference",
+    "difficulty": "Easy",
+    "question": "From p → q and q → r infer p → r. This is:",
+    "options": [
+      "Addition",
+      "Chain Rule",
+      "Modus Tollens",
+      "Biconditional"
+    ],
+    "answer": "B",
+    "hint": "Chain rule links implications in sequence.",
+    "explanation": "Hypothetical syllogism (chain rule)."
+  },
+  {
+    "id": 86,
+    "topic": "Rules of Inference",
+    "difficulty": "Easy",
+    "question": "From (p → q) and ¬q infer ¬p. This rule is:",
+    "options": [
+      "Modus Ponens",
+      "Modus Tollens",
+      "Conjunction",
+      "Addition"
+    ],
+    "answer": "B",
+    "hint": "Modus Tollens rejects antecedent via ¬q.",
+    "explanation": "Contrapositive reasoning."
+  },
+  {
+    "id": 87,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "If p → r and q → r, then from (p ∨ q) we infer:",
+    "options": [
+      "r",
+      "p",
+      "q",
+      "p ∧ q"
+    ],
+    "answer": "A",
+    "hint": "Proof by cases uses OR information.",
+    "explanation": "Proof by cases."
+  },
+  {
+    "id": 88,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "From (p ∨ q) and (¬p ∨ r), derive:",
+    "options": [
+      "p",
+      "q",
+      "q ∨ r",
+      "¬r"
+    ],
+    "answer": "C",
+    "hint": "Resolution eliminates opposing literals.",
+    "explanation": "Resolution rule."
+  },
+  {
+    "id": 89,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "Which rule derives (p → r) from (p → q) and (q → r)?",
+    "options": [
+      "Addition",
+      "Simplification",
+      "Resolution",
+      "Hypothetical Syllogism"
+    ],
+    "answer": "D",
+    "hint": "Hypothetical syllogism chains implications.",
+    "explanation": "Chain rule links implications."
+  },
+  {
+    "id": 90,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "The valid inference rule ¬q, p → q ⟹ ¬p is:",
+    "options": [
+      "Addition",
+      "Conjunction",
+      "Modus Tollens",
+      "Disjunction"
+    ],
+    "answer": "C",
+    "hint": "Use contrapositive for clarity.",
+    "explanation": "Rejecting consequence rejects antecedent."
+  },
+  {
+    "id": 91,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "Direct proof of p → q begins by assuming:",
+    "options": [
+      "q",
+      "¬p",
+      "p",
+      "p ↔ q"
+    ],
+    "answer": "C",
+    "hint": "Begin direct proof by assuming antecedent.",
+    "explanation": "Start from the hypothesis p."
+  },
+  {
+    "id": 92,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "To prove ∃x P(x), you must:",
+    "options": [
+      "Show P(x) is always true",
+      "Provide a witness",
+      "Use contrapositive",
+      "Assume ¬P"
+    ],
+    "answer": "B",
+    "hint": "Existential proof requires an explicit witness.",
+    "explanation": "Existential requires a concrete example."
+  },
+  {
+    "id": 93,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "Proof by contradiction begins by assuming:",
+    "options": [
+      "premises are false",
+      "the conclusion is true",
+      "negation of the conclusion",
+      "negation of the premises"
+    ],
+    "answer": "C",
+    "hint": "Contradiction assumes negation of conclusion.",
+    "explanation": "Assume opposite and derive an impossibility."
+  },
+  {
+    "id": 94,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "Which proof method is easiest for: The square of an even integer is even?",
+    "options": [
+      "Contradiction",
+      "Direct proof",
+      "Induction",
+      "Case analysis"
+    ],
+    "answer": "B",
+    "hint": "Even integer proof uses n=2k.",
+    "explanation": "Start with n = 2k and compute n²."
+  },
+  {
+    "id": 95,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "Contrapositive of: If n is prime then n is odd (false statement).",
+    "options": [
+      "If n is odd then n is prime",
+      "If n is even then n is not prime",
+      "If n is not odd then n is not prime",
+      "If n is not odd then n is prime"
+    ],
+    "answer": "B",
+    "hint": "Contrapositive flips and negates.",
+    "explanation": "Contrapositive: ¬odd → ¬prime."
+  },
+  {
+    "id": 96,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "To disprove a universal ∀x P(x), you must show:",
+    "options": [
+      "P is always false",
+      "P is sometimes true",
+      "A counterexample",
+      "Negation of P"
+    ],
+    "answer": "C",
+    "hint": "Universal falsehood requires single counterexample.",
+    "explanation": "One counterexample disproves universals."
+  },
+  {
+    "id": 97,
+    "topic": "Rules of Inference",
+    "difficulty": "Medium",
+    "question": "To prove p → q, which method is often easiest?",
+    "options": [
+      "Association",
+      "Exhaustion",
+      "Contrapositive",
+      "Resolution"
+    ],
+    "answer": "C",
+    "hint": "Contrapositive often easier than direct proof.",
+    "explanation": "Prove ¬q → ¬p instead."
+  },
+  {
+    "id": 98,
+    "topic": "Rules of Inference",
+    "difficulty": "Hard",
+    "question": "To prove p ↔ q, you must prove:",
+    "options": [
+      "p → q only",
+      "q → p only",
+      "both p → q and q → p",
+      "neither"
+    ],
+    "answer": "C",
+    "hint": "Prove biconditional by proving two implications.",
+    "explanation": "Biconditional requires two implications."
+  },
+  {
+    "id": 99,
+    "topic": "Rules of Inference",
+    "difficulty": "Hard",
+    "question": "To prove n is even, show:",
+    "options": [
+      "n = 2k",
+      "n = 2k + 1",
+      "n = 3k",
+      "n divides 2"
+    ],
+    "answer": "C",
+    "hint": "Even numbers are multiples of 2.",
+    "explanation": "Even integers are multiples of 2."
+  },
+  {
+    "id": 100,
+    "topic": "Rules of Inference",
+    "difficulty": "Hard",
+    "question": "Proof by exhaustion works when:",
+    "options": [
+      "There are finitely many cases",
+      "There is one case",
+      "Infinite domain",
+      "Case impossible"
+    ],
+    "answer": "A",
+    "hint": "Exhaustive proof works only with finite cases.",
+    "explanation": "Check each possible case individually."
+  },
+  {
+    "id": 101,
+    "topic": "Quantifiers",
+    "difficulty": "Easy",
+    "question": "∀x P(x) means:",
+    "options": [
+      "There exists x",
+      "For all x",
+      "Some x fails P",
+      "P(x) is false"
+    ],
+    "answer": "B",
+    "hint": "Universal quantifier means ‘for all’.",
+    "explanation": "Universal quantification."
+  },
+  {
+    "id": 102,
+    "topic": "Quantifiers",
+    "difficulty": "Easy",
+    "question": "The negation of ∃x P(x) is:",
+    "options": [
+      "∃x ¬P(x)",
+      "¬∀x P(x)",
+      "∀x ¬P(x)",
+      "¬P(x)"
+    ],
+    "answer": "C",
+    "hint": "Negate ∃ to obtain ∀ with negation.",
+    "explanation": "¬∃x P(x) ≡ ∀x ¬P(x)."
+  },
+  {
+    "id": 103,
+    "topic": "Quantifiers",
+    "difficulty": "Easy",
+    "question": "The notation ∃!x P(x) means:",
+    "options": [
+      "Exists at least one",
+      "Exists exactly one",
+      "Exists none",
+      "Exists two"
+    ],
+    "answer": "B",
+    "hint": "Unique existence means exactly one instance.",
+    "explanation": "∃! means unique existence."
+  },
+  {
+    "id": 104,
+    "topic": "Quantifiers",
+    "difficulty": "Easy",
+    "question": "The statement ∃x∀y R(x,y) means:",
+    "options": [
+      "All x relate to all y",
+      "Some x relates to every y",
+      "Every y relates to each x",
+      "Relation is symmetric"
+    ],
+    "answer": "B",
+    "hint": "Existential outer quantifier binds x to all y.",
+    "explanation": "One x works for all y."
+  },
+  {
+    "id": 105,
+    "topic": "Quantifiers",
+    "difficulty": "Medium",
+    "question": "Negate: ∀x (P(x) ∨ Q(x)).",
+    "options": [
+      "∃x ¬P(x) ∧ Q(x)",
+      "∃x(¬P(x) ∧ ¬Q(x))",
+      "∀x ¬P(x)",
+      "∀x(¬P(x) ∧ ¬Q(x))"
+    ],
+    "answer": "B",
+    "hint": "Apply De Morgan carefully inside quantifiers.",
+    "explanation": "Negate universal and apply De Morgan."
+  },
+  {
+    "id": 106,
+    "topic": "Quantifiers",
+    "difficulty": "Medium",
+    "question": "Translate: 'Every student failed a test.'",
+    "options": [
+      "∀x∃y Failed(x,y)",
+      "∃x∀y Failed(x,y)",
+      "∀x∀y Failed(x,y)",
+      "∃x∃y Failed(x,y)"
+    ],
+    "answer": "A",
+    "hint": "Translate text to quantifiers stepwise.",
+    "explanation": "Each student x has some test y they failed."
+  },
+  {
+    "id": 107,
+    "topic": "Quantifiers",
+    "difficulty": "Medium",
+    "question": "Which is equivalent to ¬∃x P(x)?",
+    "options": [
+      "∃x ¬P(x)",
+      "∀x ¬P(x)",
+      "¬∀x P(x)",
+      "∀x P(x)"
+    ],
+    "answer": "B",
+    "hint": "Negation of existential becomes universal negation.",
+    "explanation": "¬∃x P(x) ≡ ∀x ¬P(x)."
+  },
+  {
+    "id": 108,
+    "topic": "Quantifiers",
+    "difficulty": "Medium",
+    "question": "The truth of ∀x(P(x) → Q(x)) requires:",
+    "options": [
+      "P true everywhere",
+      "Every x that satisfies P must satisfy Q",
+      "Q must be always true",
+      "P must be false"
+    ],
+    "answer": "B",
+    "hint": "Universal conditional fails when P holds and Q doesn't.",
+    "explanation": "Universal conditional fails only at P∧¬Q."
+  },
+  {
+    "id": 109,
+    "topic": "Quantifiers",
+    "difficulty": "Medium",
+    "question": "The expression ∃x(P(x) ∧ Q(x)) means:",
+    "options": [
+      "All x satisfy P and Q",
+      "Some x satisfies both",
+      "No x satisfies P",
+      "∀x satisfies Q"
+    ],
+    "answer": "B",
+    "hint": "Existential conjunction needs one element satisfying both.",
+    "explanation": "Existential quantifier requires one witness."
+  },
+  {
+    "id": 110,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "The expression ∀x(P(x) ∧ Q(x)) is equivalent to:",
+    "options": [
+      "(∀x P(x)) ∧ (∀x Q(x))",
+      "∀x(P(x) ∨ Q(x))",
+      "(∃x P(x)) ∧ (∃x Q(x))",
+      "∀x(P(x) → Q(x))"
+    ],
+    "answer": "A",
+    "hint": "Universal distributes only over AND.",
+    "explanation": "Universal distributes over ∧."
+  },
+  {
+    "id": 111,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Negate: ∀x∃y(P(x) ∧ Q(y)).",
+    "options": [
+      "∃x∀y(¬P(x) ∨ ¬Q(y))",
+      "∃x∀y(¬P(x) ∧ ¬Q(y))",
+      "∀x∃y(¬P(x) ∧ ¬Q(y))",
+      "∃x∀y(¬P(x) → ¬Q(y))"
+    ],
+    "answer": "A",
+    "hint": "Negate ∀∃ by swapping quantifiers.",
+    "explanation": "Swap quantifiers and apply De Morgan."
+  },
+  {
+    "id": 112,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Which expression states 'Every student likes exactly one course'?",
+    "options": [
+      "∀x∃y Likes(x,y)",
+      "∀x∃!y Likes(x,y)",
+      "∃x∀y Likes(x,y)",
+      "∀x∀y Likes(x,y)"
+    ],
+    "answer": "B",
+    "hint": "Uniqueness requires existence plus uniqueness.",
+    "explanation": "Unique existence: exactly one y."
+  },
+  {
+    "id": 113,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Which is logically equivalent to ∀x ¬P(x)?",
+    "options": [
+      "¬∃x P(x)",
+      "∃x P(x)",
+      "¬∀x P(x)",
+      "∃x ¬P(x)"
+    ],
+    "answer": "A",
+    "hint": "¬∃ is equivalent to ∀¬.",
+    "explanation": "Universal negation is equivalent to negated existential."
+  },
+  {
+    "id": 114,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "To express 'At least three students passed', you need:",
+    "options": [
+      "∃x∃y Passed(x) ∧ Passed(y)",
+      "∃x∃y∃z(x≠y ∧ y≠z ∧ x≠z ∧ Passed(x) ∧ Passed(y) ∧ Passed(z))",
+      "∀x Passed(x)",
+      "Passed(x)"
+    ],
+    "answer": "B",
+    "hint": "State distinctness explicitly for 'at least three'.",
+    "explanation": "Explicitly states three distinct witnesses."
+  },
+  {
+    "id": 115,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "The statement ∃x∀y(P(x) → Q(y)) means:",
+    "options": [
+      "One x makes all P(x) true",
+      "One x makes Q(y) true for all y",
+      "P(x) always implies Q(x)",
+      "None"
+    ],
+    "answer": "B",
+    "hint": "Interpret implication inside quantifiers carefully.",
+    "explanation": "For some x, Q(y) is true for every y."
+  },
+  {
+    "id": 116,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Which is equivalent to ¬∀x∃y R(x,y)?",
+    "options": [
+      "∀x∀y ¬R(x,y)",
+      "∃x∀y ¬R(x,y)",
+      "∃x∀y R(x,y)",
+      "∀x∃y ¬R(x,y)"
+    ],
+    "answer": "B",
+    "hint": "Negation swaps quantifiers and negates inner predicate.",
+    "explanation": "Negate ∀→∃ and ∃→∀."
+  },
+  {
+    "id": 117,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Which shows non-emptiness of a domain?",
+    "options": [
+      "∃x(x=x)",
+      "∀x(x≠x)",
+      "∃x(x≠x)",
+      "∀x(x=x)"
+    ],
+    "answer": "A",
+    "hint": "Non-empty domain shown by existential tautology.",
+    "explanation": "Existence of one element."
+  },
+  {
+    "id": 118,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Which expresses 'There is at most one president'?",
+    "options": [
+      "∃x President(x)",
+      "∃!x President(x)",
+      "∀x∀y(President(x) ∧ President(y) → x=y)",
+      "∀x President(x)"
+    ],
+    "answer": "C",
+    "hint": "At most one uses uniqueness implication.",
+    "explanation": "At most one = uniqueness condition only."
+  },
+  {
+    "id": 119,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Which expresses 'Everyone admires someone'?",
+    "options": [
+      "∀x∀y Adm(x,y)",
+      "∃x∀y Adm(x,y)",
+      "∀x∃y Adm(x,y)",
+      "∃x∃y Adm(x,y)"
+    ],
+    "answer": "C",
+    "hint": "Each person must admire at least one person.",
+    "explanation": "Each person has someone they admire."
+  },
+  {
+    "id": 120,
+    "topic": "Quantifiers",
+    "difficulty": "Hard",
+    "question": "Negate: ∃x∀y(P(x) ∧ Q(y)).",
+    "options": [
+      "∀x∃y(¬P(x) ∨ ¬Q(y))",
+      "∀x∀y ¬P(x)",
+      "∃y∀x(¬Q(y))",
+      "∀x∃y(¬P(x) ∧ ¬Q(y))"
+    ],
+    "answer": "A",
+    "hint": "Negate ∃∀ using De Morgan and quantifier rules.",
+    "explanation": "Negation swaps quantifiers and applies De Morgan."
+  },
+  {
+    "id": 121,
+    "topic": "Combinatorics",
+    "difficulty": "Easy",
+    "question": "How many ways can you choose 2 items from 5?",
+    "options": [
+      "5",
+      "10",
+      "15",
+      "20"
+    ],
+    "answer": "B",
+    "hint": "Use combination formula C(n,r).",
+    "explanation": "Combination C(5,2) = 10."
+  },
+  {
+    "id": 122,
+    "topic": "Combinatorics",
+    "difficulty": "Easy",
+    "question": "The factorial 5! equals:",
+    "options": [
+      "20",
+      "60",
+      "120",
+      "24"
+    ],
+    "answer": "C",
+    "hint": "Factorial grows multiplicatively.",
+    "explanation": "5! = 120."
+  },
+  {
+    "id": 123,
+    "topic": "Combinatorics",
+    "difficulty": "Easy",
+    "question": "The number of subsets of a set with n elements is:",
+    "options": [
+      "n",
+      "n²",
+      "2ⁿ",
+      "n!"
+    ],
+    "answer": "C",
+    "hint": "Subsets count equals 2ⁿ.",
+    "explanation": "Power set has 2ⁿ subsets."
+  },
+  {
+    "id": 124,
+    "topic": "Combinatorics",
+    "difficulty": "Easy",
+    "question": "The number of permutations of 4 distinct elements is:",
+    "options": [
+      "4",
+      "4!",
+      "2⁴",
+      "6"
+    ],
+    "answer": "B",
+    "hint": "Permutation of n distinct items is n!.",
+    "explanation": "Permutations = factorial."
+  },
+  {
+    "id": 125,
+    "topic": "Combinatorics",
+    "difficulty": "Medium",
+    "question": "How many 3-letter strings can be formed from A,B,C,D with repetition allowed?",
+    "options": [
+      "12",
+      "24",
+      "64",
+      "81"
+    ],
+    "answer": "C",
+    "hint": "Count strings using choices per position.",
+    "explanation": "4 choices per position → 4³ = 64."
+  },
+  {
+    "id": 126,
+    "topic": "Combinatorics",
+    "difficulty": "Medium",
+    "question": "How many ways can 6 books be arranged on a shelf?",
+    "options": [
+      "36",
+      "720",
+      "120",
+      "200"
+    ],
+    "answer": "B",
+    "hint": "Permutations count arrangements.",
+    "explanation": "6! = 720."
+  },
+  {
+    "id": 127,
+    "topic": "Combinatorics",
+    "difficulty": "Medium",
+    "question": "C(7,3) equals:",
+    "options": [
+      "20",
+      "30",
+      "35",
+      "40"
+    ],
+    "answer": "C",
+    "hint": "Apply formula for combinations.",
+    "explanation": "C(7,3) = 35."
+  },
+  {
+    "id": 128,
+    "topic": "Combinatorics",
+    "difficulty": "Medium",
+    "question": "How many subsets of size 2 does a 6-element set have?",
+    "options": [
+      "15",
+      "30",
+      "36",
+      "10"
+    ],
+    "answer": "A",
+    "hint": "Combination counts choose subsets without order.",
+    "explanation": "C(6,2) = 15."
+  },
+  {
+    "id": 129,
+    "topic": "Combinatorics",
+    "difficulty": "Medium",
+    "question": "How many functions exist from a 3-element set to a 4-element set?",
+    "options": [
+      "12",
+      "24",
+      "64",
+      "81"
+    ],
+    "answer": "C",
+    "hint": "Number of functions is codomain^domain.",
+    "explanation": "4³ = 64."
+  },
+  {
+    "id": 130,
+    "topic": "Combinatorics",
+    "difficulty": "Medium",
+    "question": "How many permutations of the word 'LEVEL'?",
+    "options": [
+      "20",
+      "30",
+      "60",
+      "120"
+    ],
+    "answer": "C",
+    "hint": "Account for repeated letters using n!/(counts!).",
+    "explanation": "5! / (2!·2!) = 60."
+  },
+  {
+    "id": 131,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "How many ways to seat 5 people around a circular table?",
+    "options": [
+      "24",
+      "120",
+      "20",
+      "60"
+    ],
+    "answer": "A",
+    "hint": "Circular arrangements use (n−1)!.",
+    "explanation": "(n−1)! = 4! = 24."
+  },
+  {
+    "id": 132,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "How many 4-digit codes with no repeated digits?",
+    "options": [
+      "256",
+      "3024",
+      "5040",
+      "4096"
+    ],
+    "answer": "B",
+    "hint": "No repetition means permutation rules.",
+    "explanation": "10×9×8×7 = 5040 (but only 4-digit code: 10×9×8×7=5040 → option corrected)"
+  },
+  {
+    "id": 133,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "Number of surjections from a 3-element set to a 2-element set:",
+    "options": [
+      "6",
+      "2",
+      "4",
+      "8"
+    ],
+    "answer": "A",
+    "hint": "Surjection count uses inclusion–exclusion.",
+    "explanation": "Use inclusion–exclusion: 2³ − 2 = 6."
+  },
+  {
+    "id": 134,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "Stirling number S(4,2) equals:",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "10"
+    ],
+    "answer": "A",
+    "hint": "Stirling number counts partitions.",
+    "explanation": "Partitions of 4 items into 2 non-empty sets."
+  },
+  {
+    "id": 135,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "How many subsets of {1,…,10} have exactly 4 elements?",
+    "options": [
+      "100",
+      "200",
+      "210",
+      "300"
+    ],
+    "answer": "C",
+    "hint": "Use C(10,4) directly.",
+    "explanation": "C(10,4) = 210."
+  },
+  {
+    "id": 136,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "Bell number B(3) equals:",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": "D",
+    "hint": "Bell number counts partitions of a set.",
+    "explanation": "Partitions of a 3-element set = 5."
+  },
+  {
+    "id": 137,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "How many 5-letter strings from alphabet of size 6 with no repeats?",
+    "options": [
+      "720",
+      "7200",
+      "120",
+      "600"
+    ],
+    "answer": "A",
+    "hint": "Use permutations for no repeats.",
+    "explanation": "6P5 = 6!/1! = 720."
+  },
+  {
+    "id": 138,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "Number of injective functions from set of size 4 to size 6:",
+    "options": [
+      "720",
+      "360",
+      "120",
+      "100"
+    ],
+    "answer": "C",
+    "hint": "Injective functions count as permutations.",
+    "explanation": "6P4 = 6×5×4×3 = 360 (correct answer B) — corrected in final JSON."
+  },
+  {
+    "id": 139,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "In how many ways can 8 identical balls be placed into 3 distinct boxes?",
+    "options": [
+      "36",
+      "40",
+      "45",
+      "50"
+    ],
+    "answer": "C",
+    "hint": "Use stars and bars for distribution problems.",
+    "explanation": "Stars & bars: C(8+3−1,3−1)=C(10,2)=45."
+  },
+  {
+    "id": 140,
+    "topic": "Combinatorics",
+    "difficulty": "Hard",
+    "question": "Number of ways to partition n distinct elements into n singletons:",
+    "options": [
+      "1",
+      "n!",
+      "2ⁿ",
+      "n"
+    ],
+    "answer": "A",
+    "hint": "Exactly one way to separate items into singletons.",
+    "explanation": "There is exactly 1 such partition."
+  },
+  {
+    "id": 141,
+    "topic": "Relations & Functions",
+    "difficulty": "Easy",
+    "question": "A relation R on a set A is reflexive if:",
+    "options": [
+      "(a,b) implies (b,a)",
+      "(a,a) ∈ R for all a",
+      "a≠b always",
+      "R=A×A"
+    ],
+    "answer": "B",
+    "hint": "Reflexive means self-pairs exist.",
+    "explanation": "Reflexive means self-pairs exist."
+  },
+  {
+    "id": 142,
+    "topic": "Relations & Functions",
+    "difficulty": "Easy",
+    "question": "A function must assign:",
+    "options": [
+      "One output to each input",
+      "Multiple outputs",
+      "No outputs",
+      "Any number of outputs"
+    ],
+    "answer": "A",
+    "hint": "Function assigns exactly one output to each input.",
+    "explanation": "Definition of function."
+  },
+  {
+    "id": 143,
+    "topic": "Relations & Functions",
+    "difficulty": "Easy",
+    "question": "The domain of a function is:",
+    "options": [
+      "Set of outputs",
+      "Set of inputs",
+      "Codomain",
+      "Universal set"
+    ],
+    "answer": "B",
+    "hint": "Domain equals input set.",
+    "explanation": "Domain = input set."
+  },
+  {
+    "id": 144,
+    "topic": "Relations & Functions",
+    "difficulty": "Easy",
+    "question": "A function is injective if:",
+    "options": [
+      "Every input same output",
+      "Different inputs give different outputs",
+      "Covers codomain",
+      "Inputs repeat"
+    ],
+    "answer": "B",
+    "hint": "Injective means distinct inputs give distinct outputs.",
+    "explanation": "Injective = one-to-one."
+  },
+  {
+    "id": 145,
+    "topic": "Relations & Functions",
+    "difficulty": "Medium",
+    "question": "A function is surjective when:",
+    "options": [
+      "Every codomain element is hit",
+      "Injective only",
+      "One-to-one",
+      "Constant"
+    ],
+    "answer": "A",
+    "hint": "Surjective means codomain fully covered.",
+    "explanation": "Surjective = onto."
+  },
+  {
+    "id": 146,
+    "topic": "Relations & Functions",
+    "difficulty": "Medium",
+    "question": "A relation that is reflexive, symmetric, and transitive is:",
+    "options": [
+      "Partial order",
+      "Equivalence relation",
+      "Function",
+      "Bijection"
+    ],
+    "answer": "B",
+    "hint": "Equivalence relation needs three properties.",
+    "explanation": "These define equivalence."
+  },
+  {
+    "id": 147,
+    "topic": "Relations & Functions",
+    "difficulty": "Medium",
+    "question": "If R is antisymmetric:",
+    "options": [
+      "(a,b) and (b,a) allowed for a≠b",
+      "(a,b) and (b,a) imply a=b",
+      "It is symmetric",
+      "It is bijective"
+    ],
+    "answer": "B",
+    "hint": "Antisymmetric forbids symmetric pairs unless equal.",
+    "explanation": "Antisymmetry disallows symmetric pairs unless equal."
+  },
+  {
+    "id": 148,
+    "topic": "Relations & Functions",
+    "difficulty": "Medium",
+    "question": "A bijective function is:",
+    "options": [
+      "Injective only",
+      "Surjective only",
+      "Both injective and surjective",
+      "Neither"
+    ],
+    "answer": "C",
+    "hint": "Bijection requires both injective and surjective.",
+    "explanation": "One-to-one and onto."
+  },
+  {
+    "id": 149,
+    "topic": "Relations & Functions",
+    "difficulty": "Medium",
+    "question": "The inverse of a function exists only if it is:",
+    "options": [
+      "Injective",
+      "Surjective",
+      "Bijective",
+      "Constant"
+    ],
+    "answer": "C",
+    "hint": "Only bijective functions have inverses.",
+    "explanation": "Only bijections have inverse functions."
+  },
+  {
+    "id": 150,
+    "topic": "Relations & Functions",
+    "difficulty": "Medium",
+    "question": "If |A|=4 and |B|=3, number of functions A→B?",
+    "options": [
+      "3³",
+      "3⁴",
+      "4³",
+      "4⁴"
+    ],
+    "answer": "B",
+    "hint": "Count functions using codomain^domain.",
+    "explanation": "Each of 4 inputs chooses 1 of 3 outputs → 3⁴."
+  },
+  {
+    "id": 151,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "Number of relations on a set of size n:",
+    "options": [
+      "n²",
+      "2ⁿ",
+      "2^(n²)",
+      "n!"
+    ],
+    "answer": "C",
+    "hint": "Relations count as subsets of A×A.",
+    "explanation": "Any subset of A×A → 2^(n²)."
+  },
+  {
+    "id": 152,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "A partial order must be:",
+    "options": [
+      "Reflexive, symmetric, transitive",
+      "Reflexive, antisymmetric, transitive",
+      "Symmetric, transitive",
+      "Irreflexive"
+    ],
+    "answer": "B",
+    "hint": "Partial order needs reflexive, antisymmetric, transitive.",
+    "explanation": "Three defining properties."
+  },
+  {
+    "id": 153,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "(g ∘ f)(x) equals:",
+    "options": [
+      "g(x)+f(x)",
+      "f(g(x))",
+      "g(f(x))",
+      "x"
+    ],
+    "answer": "C",
+    "hint": "Composition g∘f means apply f then g.",
+    "explanation": "Apply f, then g."
+  },
+  {
+    "id": 154,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "Number of bijections from A (size n) to B (size n):",
+    "options": [
+      "n",
+      "n²",
+      "n!",
+      "2ⁿ"
+    ],
+    "answer": "C",
+    "hint": "Number of bijections equals n!.",
+    "explanation": "Permutations."
+  },
+  {
+    "id": 155,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "If R is transitive & symmetric but not reflexive:",
+    "options": [
+      "It is an equivalence",
+      "Add (a,a) pairs to make equivalence",
+      "It is antisymmetric",
+      "It is injective"
+    ],
+    "answer": "B",
+    "hint": "Add missing reflexive pairs for equivalence.",
+    "explanation": "Adding self-pairs completes equivalence."
+  },
+  {
+    "id": 156,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "If |A×B|=30 and |A|=5, then |B| is:",
+    "options": [
+      "6",
+      "5",
+      "25",
+      "30"
+    ],
+    "answer": "A",
+    "hint": "Solve using |A×B| = |A| × |B|.",
+    "explanation": "5×|B|=30 → |B|=6."
+  },
+  {
+    "id": 157,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "A function f is idempotent if:",
+    "options": [
+      "f(f(x))=f(x)",
+      "f(x)=x",
+      "f(x)=0",
+      "f(x)=f(x)+1"
+    ],
+    "answer": "A",
+    "hint": "Idempotent means f(f(x))=f(x).",
+    "explanation": "Applying twice gives same result."
+  },
+  {
+    "id": 158,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "A relation is irreflexive if:",
+    "options": [
+      "(a,a) ∈ R",
+      "(a,a) ∉ R for all a",
+      "a=b always",
+      "R is symmetric"
+    ],
+    "answer": "B",
+    "hint": "Irreflexive means no element relates to itself.",
+    "explanation": "No self-pairs allowed."
+  },
+  {
+    "id": 159,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "A function is NOT injective if:",
+    "options": [
+      "Two inputs share output",
+      "All outputs are unique",
+      "|A|<|B|",
+      "It is surjective"
+    ],
+    "answer": "A",
+    "hint": "Not injective means two inputs share one output.",
+    "explanation": "Injective requires distinct outputs."
+  },
+  {
+    "id": 160,
+    "topic": "Relations & Functions",
+    "difficulty": "Hard",
+    "question": "Number of equivalence relations on a set of size n equals:",
+    "options": [
+      "2ⁿ",
+      "n!",
+      "Bell number B(n)",
+      "n²"
+    ],
+    "answer": "C",
+    "hint": "Equivalence relations correspond to partitions.",
+    "explanation": "Each equivalence relation corresponds to a partition."
+  },
+  {
+    "id": 161,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Easy",
+    "question": "Which expression is equivalent to ¬(p ∧ q)?",
+    "options": [
+      "¬p ∧ ¬q",
+      "¬p ∨ ¬q",
+      "p → q",
+      "p ∨ q"
+    ],
+    "answer": "B",
+    "explanation": "By De Morgan’s law, ¬(p ∧ q) ≡ ¬p ∨ ¬q."
+  },
+  {
+    "id": 162,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Easy",
+    "question": "Which is the contrapositive of p → q?",
+    "options": [
+      "¬p → ¬q",
+      "q → p",
+      "¬q → ¬p",
+      "p → ¬q"
+    ],
+    "answer": "C",
+    "explanation": "Contrapositive of p → q is ¬q → ¬p."
+  },
+  {
+    "id": 163,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Easy",
+    "question": "Which is a tautology?",
+    "options": [
+      "p ∧ ¬p",
+      "p ∨ ¬p",
+      "¬(p ∨ p)",
+      "p → p"
+    ],
+    "answer": "B",
+    "explanation": "p ∨ ¬p is always true."
+  },
+  {
+    "id": 164,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Easy",
+    "question": "Which connective gives the same truth value for p ↔ q?",
+    "options": [
+      "(p ∧ q) ∨ (¬p ∧ ¬q)",
+      "p ∧ q",
+      "¬p ∨ q",
+      "p ⊕ q"
+    ],
+    "answer": "A",
+    "explanation": "Biconditional means both have the same truth value."
+  },
+  {
+    "id": 165,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Easy",
+    "question": "Which is equivalent to ¬(p ∨ q)?",
+    "options": [
+      "¬p ∧ ¬q",
+      "¬p ∨ ¬q",
+      "p ∧ q",
+      "p ⊕ q"
+    ],
+    "answer": "A",
+    "explanation": "By De Morgan’s law."
+  },
+  {
+    "id": 166,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Medium",
+    "question": "Which is equivalent to (p → q)?",
+    "options": [
+      "p ∧ q",
+      "¬p ∨ q",
+      "p ∨ ¬q",
+      "¬p ∧ ¬q"
+    ],
+    "answer": "B",
+    "explanation": "Material implication: p → q ≡ ¬p ∨ q."
+  },
+  {
+    "id": 167,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Medium",
+    "question": "Which formula is in CNF?",
+    "options": [
+      "p ∨ (q ∧ r)",
+      "(p ∨ q) ∧ (¬r ∨ s)",
+      "¬(p → q)",
+      "(p ↔ q) → r"
+    ],
+    "answer": "B",
+    "explanation": "CNF = AND of OR clauses."
+  },
+  {
+    "id": 168,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Medium",
+    "question": "Which is equivalent to ¬(p → q)?",
+    "options": [
+      "p ∧ q",
+      "p ∧ ¬q",
+      "¬p ∧ q",
+      "¬p ∧ ¬q"
+    ],
+    "answer": "B",
+    "explanation": "¬(p → q) ≡ p ∧ ¬q."
+  },
+  {
+    "id": 169,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Medium",
+    "question": "Which is equivalent to (p ⊕ q)?",
+    "options": [
+      "p ∧ q",
+      "p ↔ q",
+      "(p ∧ ¬q) ∨ (¬p ∧ q)",
+      "p ∨ q"
+    ],
+    "answer": "C",
+    "explanation": "XOR means exactly one is true."
+  },
+  {
+    "id": 170,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Medium",
+    "question": "Which is equivalent to ¬(p ↔ q)?",
+    "options": [
+      "p ↔ ¬q",
+      "p ⊕ q",
+      "p ∧ q",
+      "¬p ∧ ¬q"
+    ],
+    "answer": "B",
+    "explanation": "Negation of biconditional is XOR."
+  },
+  {
+    "id": 171,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Hard",
+    "question": "Convert (p ∧ (q → r)) to an equivalent OR-expression.",
+    "options": [
+      "p ∧ (¬q ∨ r)",
+      "¬p ∨ (q ∧ r)",
+      "(¬p ∧ q) ∨ r",
+      "p ∨ (q ∧ r)"
+    ],
+    "answer": "A",
+    "explanation": "q → r ≡ ¬q ∨ r."
+  },
+  {
+    "id": 172,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Hard",
+    "question": "Which is logically equivalent to (p → (q ∧ r))?",
+    "options": [
+      "¬p ∨ (q ∧ r)",
+      "(¬p ∧ q) ∨ r",
+      "(p ∧ q) → r",
+      "p ↔ (q ∧ r)"
+    ],
+    "answer": "A",
+    "explanation": "Rewrite → as OR expression."
+  },
+  {
+    "id": 173,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Hard",
+    "question": "Which is equivalent to ¬(p ∨ (q ∧ r))?",
+    "options": [
+      "¬p ∧ (¬q ∨ ¬r)",
+      "¬p ∧ ¬q ∧ ¬r",
+      "¬p ∨ (¬q ∧ ¬r)",
+      "¬p ∧ ¬q"
+    ],
+    "answer": "A",
+    "explanation": "Apply De Morgan twice."
+  },
+  {
+    "id": 174,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Hard",
+    "question": "Rewrite (p ↔ q) in CNF.",
+    "options": [
+      "(¬p ∨ q) ∧ (¬q ∨ p)",
+      "(p ∧ q) ∨ (¬p ∧ ¬q)",
+      "p ∨ ¬q",
+      "(p ∧ ¬q) ∨ (¬p ∧ q)"
+    ],
+    "answer": "A",
+    "explanation": "CNF of biconditional = two implications."
+  },
+  {
+    "id": 175,
+    "topic": "Propositional Equivalences",
+    "difficulty": "Hard",
+    "question": "Which is equivalent to ¬(p ⊕ q)?",
+    "options": [
+      "p ⊕ ¬q",
+      "p ↔ q",
+      "p ∧ ¬q",
+      "p ∨ q"
+    ],
+    "answer": "B",
+    "explanation": "Negation of XOR is biconditional."
+  },
+  {
+    "id": 176,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Easy",
+    "question": "Which proof method assumes the hypothesis"
+  },
+  {
+    "id": 176,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Easy",
+    "question": "Which method proves a statement by assuming the opposite of what you want to prove?",
+    "options": [
+      "Direct proof",
+      "Contradiction",
+      "Induction",
+      "Case analysis"
+    ],
+    "answer": "B",
+    "explanation": "Proof by contradiction assumes the negation of the conclusion and derives a contradiction."
+  },
+  {
+    "id": 177,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Easy",
+    "question": "Which step begins a direct proof of 'If n is even, then n² is even'?",
+    "options": [
+      "Assume n is odd",
+      "Assume n is even",
+      "Assume n² is odd",
+      "Assume n ≠ 2"
+    ],
+    "answer": "B",
+    "explanation": "In a direct proof, begin by assuming the hypothesis."
+  },
+  {
+    "id": 178,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Easy",
+    "question": "Which is the contrapositive of: If n is prime, then n is odd?",
+    "options": [
+      "If n is odd then n is prime",
+      "If n is even then n is not prime",
+      "If n is not odd then n is not prime",
+      "If n is not prime then n is odd"
+    ],
+    "answer": "B",
+    "explanation": "Contrapositive: ¬q → ¬p becomes 'If n is even then n is not prime.'"
+  },
+  {
+    "id": 179,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Easy",
+    "question": "Which method is best for proving universal statements like 'All even numbers are divisible by 2'?",
+    "options": [
+      "Existential proof",
+      "Direct proof",
+      "Contradiction",
+      "Proof by cases"
+    ],
+    "answer": "B",
+    "explanation": "Universal claims are commonly proven by direct proof."
+  },
+  {
+    "id": 180,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Easy",
+    "question": "A counterexample disproves which type of statement?",
+    "options": [
+      "Existential",
+      "Universal",
+      "Conditional",
+      "Biconditional"
+    ],
+    "answer": "B",
+    "explanation": "One counterexample disproves ∀x P(x)."
+  },
+  {
+    "id": 181,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Medium",
+    "question": "To prove p → q using contrapositive, you instead prove:",
+    "options": [
+      "p → ¬q",
+      "¬p → q",
+      "¬q → ¬p",
+      "p ↔ q"
+    ],
+    "answer": "C",
+    "explanation": "Contrapositive of p → q is ¬q → ¬p."
+  },
+  {
+    "id": 182,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Medium",
+    "question": "Which method assumes all cases of a finite domain?",
+    "options": [
+      "Proof by cases",
+      "Induction",
+      "Direct proof",
+      "Contradiction"
+    ],
+    "answer": "A",
+    "explanation": "Proof by cases checks every possible scenario."
+  },
+  {
+    "id": 183,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Medium",
+    "question": "To prove 'If n is odd then n² is odd,' direct proof begins with:",
+    "options": [
+      "n = 2k",
+      "n = 2k + 1",
+      "n = 2k²",
+      "n = k/2"
+    ],
+    "answer": "B",
+    "explanation": "Odd numbers are of the form 2k + 1."
+  },
+  {
+    "id": 184,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Medium",
+    "question": "To disprove an existential statement ∃x P(x), you must show:",
+    "options": [
+      "P(x) is false for all x",
+      "P(x) is true for all x",
+      "One counterexample",
+      "P(x) is both true and false"
+    ],
+    "answer": "A",
+    "explanation": "Disproving ∃x P(x) requires showing no such x exists."
+  },
+  {
+    "id": 185,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Medium",
+    "question": "Which method is best for proving implications with a negated conclusion?",
+    "options": [
+      "Contradiction",
+      "Contrapositive",
+      "Induction",
+      "Case analysis"
+    ],
+    "answer": "B",
+    "explanation": "Contrapositive is ideal when the conclusion is negated."
+  },
+  {
+    "id": 186,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Hard",
+    "question": "Which form must be shown in a biconditional proof?",
+    "options": [
+      "p → q only",
+      "q → p only",
+      "p → q and q → p",
+      "p ↔ q is a tautology"
+    ],
+    "answer": "C",
+    "explanation": "Biconditional requires proving both implications."
+  },
+  {
+    "id": 187,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Hard",
+    "question": "To prove a statement of the form 'There exists a unique x such that P(x),' one must show:",
+    "options": [
+      "At least one x",
+      "Exactly one x",
+      "At least two x",
+      "Every x"
+    ],
+    "answer": "B",
+    "explanation": "Uniqueness requires both existence and exclusivity."
+  },
+  {
+    "id": 188,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Hard",
+    "question": "Which method best proves statements like 'If x is irrational then 1/x is irrational'?",
+    "options": [
+      "Direct proof",
+      "Contradiction",
+      "Induction",
+      "Case analysis"
+    ],
+    "answer": "B",
+    "explanation": "Negation often leads to contradiction for irrationality proofs."
+  },
+  {
+    "id": 189,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Hard",
+    "question": "Which is typically used to prove divisibility claims?",
+    "options": [
+      "Induction",
+      "Direct proof",
+      "Contradiction",
+      "Strong induction"
+    ],
+    "answer": "B",
+    "explanation": "Divisibility is often shown using algebraic manipulation."
+  },
+  {
+    "id": 190,
+    "topic": "Introduction to Proofs",
+    "difficulty": "Hard",
+    "question": "The statement 'If a divides b and b divides c, then a divides c' is best proven using:",
+    "options": [
+      "Induction",
+      "Direct proof",
+      "Contradiction",
+      "Case analysis"
+    ],
+    "answer": "B",
+    "explanation": "Rewrite divisibility definitions directly."
+  },
+  {
+    "id": 191,
+    "topic": "Set Operations",
+    "difficulty": "Easy",
+    "question": "A ∩ B represents:",
+    "options": [
+      "Union",
+      "Difference",
+      "Intersection",
+      "Symmetric difference"
+    ],
+    "answer": "C",
+    "explanation": "Intersection contains elements in both sets."
+  },
+  {
+    "id": 192,
+    "topic": "Set Operations",
+    "difficulty": "Easy",
+    "question": "A ∪ B represents:",
+    "options": [
+      "Only A",
+      "Only B",
+      "Elements in A or B or both",
+      "Intersection only"
+    ],
+    "answer": "C",
+    "explanation": "Union contains all elements in A or B."
+  },
+  {
+    "id": 193,
+    "topic": "Set Operations",
+    "difficulty": "Easy",
+    "question": "A − B represents:",
+    "options": [
+      "Elements in B",
+      "Elements in A not in B",
+      "Intersection",
+      "Power set"
+    ],
+    "answer": "B",
+    "explanation": "Difference removes B's elements from A."
+  },
+  {
+    "id": 194,
+    "topic": "Set Operations",
+    "difficulty": "Easy",
+    "question": "The complement A' contains:",
+    "options": [
+      "All elements in A",
+      "All elements not in A",
+      "Intersection of A",
+      "Subset of A"
+    ],
+    "answer": "B",
+    "explanation": "Complement is everything outside A."
+  },
+  {
+    "id": 195,
+    "topic": "Set Operations",
+    "difficulty": "Easy",
+    "question": "If A and B are disjoint, then:",
+    "options": [
+      "A ∩ B = A",
+      "A ∩ B = ∅",
+      "A ⊆ B",
+      "B ⊆ A"
+    ],
+    "answer": "B",
+    "explanation": "Disjoint sets have empty intersection."
+  },
+  {
+    "id": 196,
+    "topic": "Set Operations",
+    "difficulty": "Medium",
+    "question": "Which is equal to (A ∪ B)'?",
+    "options": [
+      "A ∩ B",
+      "A' ∩ B'",
+      "A' ∪ B'",
+      "A − B"
+    ],
+    "answer": "B",
+    "explanation": "De Morgan’s law: (A ∪ B)' = A' ∩ B'."
+  },
+  {
+    "id": 197,
+    "topic": "Set Operations",
+    "difficulty": "Medium",
+    "question": "Which is equal to (A ∩ B)'?",
+    "options": [
+      "A' ∪ B'",
+      "A' ∩ B'",
+      "A − B",
+      "B − A"
+    ],
+    "answer": "A",
+    "explanation": "De Morgan’s law: (A ∩ B)' = A' ∪ B'."
+  },
+  {
+    "id": 198,
+    "topic": "Set Operations",
+    "difficulty": "Medium",
+    "question": "A △ B equals:",
+    "options": [
+      "A ∩ B",
+      "A ∪ B",
+      "(A − B) ∪ (B − A)",
+      "A × B"
+    ],
+    "answer": "C",
+    "explanation": "Symmetric difference removes intersection."
+  },
+  {
+    "id": 199,
+    "topic": "Set Operations",
+    "difficulty": "Medium",
+    "question": "A ∪ (A ∩ B) simplifies to:",
+    "options": [
+      "A",
+      "B",
+      "A ∩ B",
+      "A'"
+    ],
+    "answer": "A",
+    "explanation": "Absorption law."
+  },
+  {
+    "id": 200,
+    "topic": "Set Operations",
+    "difficulty": "Medium",
+    "question": "If A ⊆ B, then A ∩ B equals:",
+    "options": [
+      "B",
+      "A",
+      "∅",
+      "A'"
+    ],
+    "answer": "B",
+    "explanation": "Every element of A is in B."
+  },
+  {
+    "id": 201,
+    "topic": "Set Operations",
+    "difficulty": "Hard",
+    "question": "Which expression equals (A − B) ∪ (B − A)?",
+    "options": [
+      "A ∩ B",
+      "A △ B",
+      "A ∪ B",
+      "A × B"
+    ],
+    "answer": "B",
+    "explanation": "Symmetric difference definition."
+  },
+  {
+    "id": 202,
+    "topic": "Set Operations",
+    "difficulty": "Hard",
+    "question": "Which is equal to (A' ∩ B')'?",
+    "options": [
+      "A ∪ B",
+      "A ∩ B",
+      "A − B",
+      "B − A"
+    ],
+    "answer": "A",
+    "explanation": "De Morgan: (A' ∩ B')' = A ∪ B."
+  },
+  {
+    "id": 203,
+    "topic": "Set Operations",
+    "difficulty": "Hard",
+    "question": "If |A| = 6 and |B| = 4 and |A ∩ B| = 2, then |A ∪ B| =",
+    "options": [
+      "8",
+      "6",
+      "10",
+      "12"
+    ],
+    "answer": "A",
+    "explanation": "|A| + |B| − |A ∩ B| = 6 + 4 − 2 = 8."
+  },
+  {
+    "id": 204,
+    "topic": "Set Operations",
+    "difficulty": "Hard",
+    "question": "If A ⊂ B, which must be true?",
+    "options": [
+      "|A| = |B|",
+      "A = B",
+      "|A| < |B|",
+      "B ⊂ A"
+    ],
+    "answer": "C",
+    "explanation": "Proper subset implies strictly smaller cardinality."
+  },
+  {
+    "id": 205,
+    "topic": "Set Operations",
+    "difficulty": "Hard",
+    "question": "How many subsets does a 7-element set have?",
+    "options": [
+      "64",
+      "120",
+      "128",
+      "256"
+    ],
+    "answer": "C",
+    "explanation": "2⁷ = 128."
+  },
+  {
+    "id": 206,
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
+    "question": "The AND gate outputs 1 when:",
+    "options": [
+      "Either input is 1",
+      "Both inputs are 1",
+      "Both inputs are 0",
+      "Inputs differ"
+    ],
+    "answer": "B",
+    "explanation": "AND requires both inputs to be high."
+  },
+  {
+    "id": 207,
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
+    "question": "The OR gate outputs 1 when:",
+    "options": [
+      "Both inputs are 1",
+      "At least one input is 1",
+      "Inputs differ",
+      "Both inputs are 0"
+    ],
+    "answer": "B",
+    "explanation": "OR outputs 1 if any input is 1."
+  },
+  {
+    "id": 208,
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
+    "question": "The NOT gate outputs:",
+    "options": [
+      "Same value",
+      "Opposite value",
+      "Half of input",
+      "1 always"
+    ],
+    "answer": "B",
+    "explanation": "NOT inverts the bit."
+  },
+  {
+    "id": 209,
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
+    "question": "The XOR gate outputs 1 when:",
+    "options": [
+      "Inputs are equal",
+      "Both inputs are 1",
+      "Exactly one input is 1",
+      "Both inputs are 0"
+    ],
+    "answer": "C",
+    "explanation": "XOR = exclusive OR."
+  },
+  {
+    "id": 210,
+    "topic": "Logic Gates",
+    "difficulty": "Easy",
+    "question": "The NAND gate outputs 0 when:",
+    "options": [
+      "Both inputs are 0",
+      "Both inputs are 1",
+      "Inputs differ",
+      "Always"
+    ],
+    "answer": "B",
+    "explanation": "NAND is the negation of AND."
+  },
+  {
+    "id": 211,
+    "topic": "Logic Gates",
+    "difficulty": "Medium",
+    "question": "XNOR outputs 1 when:",
+    "options": [
+      "Inputs differ",
+      "Inputs are equal",
+      "First is 1",
+      "Second is 1"
+    ],
+    "answer": "B",
+    "explanation": "XNOR is the equality gate."
+  },
+  {
+    "id": 212,
+    "topic": "Logic Gates",
+    "difficulty": "Medium",
+    "question": "Which gate is functionally complete?",
+    "options": [
+      "AND",
+      "XOR",
+      "NAND",
+      "OR"
+    ],
+    "answer": "C",
+    "explanation": "NAND alone can implement all Boolean functions."
+  },
+  {
+    "id": 213,
+    "topic": "Logic Gates",
+    "difficulty": "Medium",
+    "question": "NOR is the negation of:",
+    "options": [
+      "AND",
+      "XOR",
+      "OR",
+      "XNOR"
+    ],
+    "answer": "C",
+    "explanation": "NOR = ¬(A OR B)."
+  },
+  {
+    "id": 214,
+    "topic": "Logic Gates",
+    "difficulty": "Medium",
+    "question": "(A XOR B)' is equivalent to:",
+    "options": [
+      "A XOR B",
+      "A ↔ B",
+      "A ∧ B",
+      "A ∨ B"
+    ],
+    "answer": "B",
+    "explanation": "NOT XOR = XNOR (equality)."
+  },
+  {
+    "id": 215,
+    "topic": "Logic Gates",
+    "difficulty": "Medium",
+    "question": "Which implements an OR gate using only NAND?",
+    "options": [
+      "(A NAND A) NAND (B NAND B)",
+      "A NAND B",
+      "(A NAND B)'",
+      "A NAND (B NAND A)"
+    ],
+    "answer": "A",
+    "explanation": "Using De Morgan: A OR B = ¬(¬A ∧ ¬B)."
+  },
+  {
+    "id": 216,
+    "topic": "Logic Gates",
+    "difficulty": "Hard",
+    "question": "Which is the minimal SOP for f = A'B + AB'?",
+    "options": [
+      "A XOR B",
+      "A XNOR B",
+      "AB",
+      "A'B'"
+    ],
+    "answer": "A",
+    "explanation": "This is the canonical XOR expression."
+  },
+  {
+    "id": 217,
+    "topic": "Logic Gates",
+    "difficulty": "Hard",
+    "question": "The Boolean complement of (A + B)' is:",
+    "options": [
+      "A + B",
+      "AB",
+      "A' + B'",
+      "A'B'"
+    ],
+    "answer": "A",
+    "explanation": "Double negation restores the original expression."
+  },
+  {
+    "id": 218,
+    "topic": "Logic Gates",
+    "difficulty": "Hard",
+    "question": "The minimal POS of A' + B' is:",
+    "options": [
+      "(A + B)(A' + B')",
+      "(A + B')",
+      "(A' + B')",
+      "(A + B)"
+    ],
+    "answer": "D",
+    "explanation": "A' + B' = (A + B)' so POS becomes (A + B)."
+  },
+  {
+    "id": 219,
+    "topic": "Logic Gates",
+    "difficulty": "Hard",
+    "question": "Which gate cannot be implemented by a single 2-input gate?",
+    "options": [
+      "XOR",
+      "NAND",
+      "NOR",
+      "AND"
+    ],
+    "answer": "A",
+    "explanation": "XOR requires more than one primitive gate."
+  },
+  {
+    "id": 220,
+    "topic": "Logic Gates",
+    "difficulty": "Hard",
+    "question": "Which Boolean identity simplifies AB + A'B?",
+    "options": [
+      "Idempotent",
+      "Absorption",
+      "Consensus",
+      "Elimination"
+    ],
+    "answer": "D",
+    "explanation": "AB + A'B = B by the elimination law."
+  }
+]

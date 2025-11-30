@@ -1,361 +1,397 @@
-import json
+
+
+# 3333333
 import os
-from flask import (
-    Flask, render_template, request, redirect,
-    session, url_for, jsonify
-)
+import re
+import json
+import random
+from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 from datetime import datetime
-from logic_engine import (
-    normalize_formula,
-    truth_table,
+
+from logic.evaluator import (
+    generate_truth_table,
     classify_formula,
     check_equivalence,
-    check_argument_validity
+    check_argument_validity,
+    normalize_formula
+)
+from logic.parser import parse_expression
+
+from logic.questions import (
+    check_answer,
+    get_hint,
+    get_random_questions
 )
 
-# -----------------------------------------------------
-# APP SETUP
-# -----------------------------------------------------
 app = Flask(__name__)
-app.secret_key = "discrete_math_secret_key"
+app.secret_key = os.environ.get("LOGIC_TUTOR_SECRET", "dev-secret-key")
 
-# File paths
-USER_FILE = "data/users.json"
-QUESTION_FILE = "data/questions.json"
-MAZE_FILE = "data/maze.json"
+# Optional: load for tools/demo; quiz uses get_random_questions()
+with open("questions_full_200.json", "r", encoding="utf-8") as f:
+    ALL_QUESTIONS = json.load(f)
 
-# -----------------------------------------------------
-# LOAD JSON HELPERS
-# -----------------------------------------------------
-def load_json(path):
-    if not os.path.exists(path):
-        return []
-    with open(path, "r") as f:
-        return json.load(f)
 
-def save_json(path, data):
-    with open(path, "w") as f:
-        json.dump(data, f, indent=4)
+# -------------------------------------------------
+# PERFORMANCE TRACKING
+# -------------------------------------------------
+def init_performance():
+    """Ensure session has performance tracking."""
+    if "performance" not in session:
+        session["performance"] = {}
 
-# -----------------------------------------------------
-# HOME / LANDING PAGE
-# -----------------------------------------------------
+
+def update_performance(topic, correct):
+    """Update attempts + correct answers for a topic."""
+    perf = session.get("performance", {})
+
+    if topic not in perf:
+        perf[topic] = {"attempts": 0, "correct": 0}
+
+    perf[topic]["attempts"] += 1
+    if correct:
+        perf[topic]["correct"] += 1
+
+    session["performance"] = perf
+
+
+# -------------------------------------------------
+# ADAPTIVE DIFFICULTY ENGINE
+# -------------------------------------------------
+def get_adaptive_difficulty(topic):
+    perf = session.get("performance", {})
+
+    if topic not in perf:
+        return "Easy"  # New topic → start easy
+
+    data = perf[topic]
+    attempts = data["attempts"]
+    correct = data["correct"]
+
+    if attempts == 0:
+        return "Easy"
+
+    accuracy = correct / attempts
+
+    if accuracy < 0.40:
+        return "Easy"
+    elif accuracy < 0.75:
+        return "Medium"
+    else:
+        return "Hard"
+
+
+# -------------------------
+# Helpers
+# -------------------------
+def _clean_label_prefix(text: str) -> str:
+    """Remove a leading difficulty label like: [Easy] Question ..."""
+    return re.sub(r"^\[[^\]]+\]\s*", "", text or "")
+
+
+# -------------------------
+# ROUTES: Basic pages
+# -------------------------
 @app.route("/")
 def home():
-    return render_template("setup_project.html")
-
-# -----------------------------------------------------
-# AUTH ROUTES
-# -----------------------------------------------------
-@app.route("/signup", methods=["GET", "POST"])
-def signup():
-    if request.method == "POST":
-        users = load_json(USER_FILE)
-
-        username = request.form.get("username")
-        password = request.form.get("password")
-
-        # Check duplicate
-        for u in users:
-            if u["username"] == username:
-                return render_template("signup.html",
-                                       error="Username already exists.")
-
-        users.append({
-            "username": username,
-            "password": password,
-            "created": str(datetime.now()),
-            "quizzes_taken": 0
-        })
-
-        save_json(USER_FILE, users)
-        return redirect(url_for("login"))
-
-    return render_template("signup.html")
+    return render_template("home.html")
 
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        users = load_json(USER_FILE)
-        username = request.form.get("username")
-        password = request.form.get("password")
-
-        for u in users:
-            if u["username"] == username and u["password"] == password:
-                session["user"] = username
-                return redirect(url_for("dashboard"))
-
-        return render_template("login.html",
-                               error="Invalid username or password.")
-
-    return render_template("login.html")
-
-
-@app.route("/guest")
-def guest():
-    session["user"] = "GUEST"
-    return redirect(url_for("dashboard"))
-
-
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect(url_for("home"))
-
-# -----------------------------------------------------
-# DASHBOARD
-# -----------------------------------------------------
-@app.route("/dashboard")
-def dashboard():
-    if "user" not in session:
-        return redirect(url_for("home"))
-    return render_template("dashboard.html", user=session["user"])
-
-# -----------------------------------------------------
-# LEARNING MODULE
-# -----------------------------------------------------
 @app.route("/learn")
 def learn():
-    topics = [
-        "Propositional Logic",
-        "Truth Tables",
-        "Logical Equivalence",
-        "Rules of Inference",
-        "Predicates & Quantifiers",
-        "Sets",
-        "Proof Techniques",
-        "Boolean Functions",
-        "Logic Gates",
-        "Algorithms",
-        "Induction"
-    ]
-    return render_template("learn.html", topics=topics)
+    return render_template("learn.html")
 
-
-@app.route("/learn/<topic>")
-def learn_topic(topic):
-    return render_template("learn_topic.html", topic=topic)
-
-# -----------------------------------------------------
-# LOGIC TOOLS
-# -----------------------------------------------------
 @app.route("/tools", methods=["GET", "POST"])
 def tools():
     result = {}
+
     if request.method == "POST":
         action = request.form.get("action")
 
         # ------------------------------
-        # TRUTH TABLE
+        # 1. TRUTH TABLE
         # ------------------------------
-        if action == "truth":
-            formula = normalize_formula(request.form.get("formula", ""))
-            try:
-                table = truth_table(formula)
-                result["truth_table"] = table
-            except:
-                result["error"] = "Invalid formula."
+        if action == "truth_table":
+            formula = request.form.get("formula_tt", "").strip()
+            formula = normalize_formula(formula)
+
+            data = generate_truth_table(formula)
+
+            result["headers"] = data.get("headers", [])
+            result["table"] = data.get("rows", [])
+            result["error"] = data.get("error")
 
         # ------------------------------
-        # CLASSIFIER
+        # 2. FORMULA CLASSIFIER
         # ------------------------------
         elif action == "classify":
-            formula = normalize_formula(request.form.get("formula", ""))
-            try:
-                result["classification"] = classify_formula(formula)
-            except:
-                result["error"] = "Invalid formula."
+            formula = request.form.get("formula_class", "").strip()
+            # Use normalized formula for classification to keep behavior consistent
+            result["classification"] = classify_formula(normalize_formula(formula))
 
         # ------------------------------
-        # EQUIVALENCE CHECKER
+        # 3. EQUIVALENCE CHECKER
         # ------------------------------
         elif action == "equivalence":
-            f1 = normalize_formula(request.form.get("formula1", ""))
-            f2 = normalize_formula(request.form.get("formula2", ""))
-            try:
-                result["equivalent"] = check_equivalence(f1, f2)
-            except:
-                result["error"] = "Invalid formula."
+            f1 = normalize_formula(request.form.get("formula1", "").strip())
+            f2 = normalize_formula(request.form.get("formula2", "").strip())
+
+            result["equivalent"] = check_equivalence(f1, f2)
 
         # ------------------------------
-        # ARGUMENT VALIDITY CHECKER
+        # 4. ARGUMENT VALIDITY CHECKER
         # ------------------------------
         elif action == "validity":
-            raw = request.form.get("premises", "")
-            conclusion = normalize_formula(request.form.get("conclusion", ""))
+            premises_raw = request.form.get("premises", "")
+            conclusion = normalize_formula(request.form.get("conclusion", "").strip())
+            premises_list = [normalize_formula(p.strip()) for p in premises_raw.split(",") if p.strip()]
 
+            # Validate each formula before calling the evaluator so we can show
+            # a clear error message instead of a generic "Invalid formula".
             try:
-                premises_list = [normalize_formula(x.strip())
-                                 for x in raw.split(",")]
-
-                result["validity"] = check_argument_validity(
-                    premises_list, conclusion
-                )
-            except:
-                result["error"] = "Invalid argument structure."
+                for p in premises_list:
+                    parse_expression(p)
+                if conclusion:
+                    parse_expression(conclusion)
+            except Exception as e:
+                result["validity"] = f"Error: Invalid formula — {str(e)}"
+            else:
+                result["validity"] = check_argument_validity(premises_list, conclusion)
 
     return render_template("tools.html", result=result)
 
-# -----------------------------------------------------
-# QUIZ ENGINE
-# -----------------------------------------------------
-@app.route("/quiz", methods=["GET", "POST"])
-def quiz_setup():
-    questions = load_json(QUESTION_FILE)
-    topics = sorted(list({q["topic"] for q in questions}))
 
-    return render_template("quiz_setup.html", topics=topics)
+
+@app.route("/performance")
+def performance():
+    init_performance()
+    return render_template("performance.html",
+                           performance=session["performance"])
+
+
+# -------------------------
+# QUIZ SESSION ROUTES
+# -------------------------
+@app.route("/quiz", methods=["GET", "POST"])
+def quiz():
+    if not session.get("quiz_started"):
+        return render_template("quiz.html", question=None)
+
+    index = session.get("quiz_index", 0)
+    questions = session.get("quiz_questions", [])
+
+    if index >= len(questions):
+        return redirect(url_for("quiz_end"))
+
+    question = questions[index]
+
+    if request.method == "POST":
+        selected = request.form.get("answer")
+        feedback, correct = check_answer(question, selected)
+        # Prepare hint only when the answer is incorrect
+        result = {}
+        if not correct:
+            result["hint"] = get_hint(question)
+        else:
+            result["hint"] = None
+
+        # Track performance for adaptive difficulty
+        update_performance(question["topic"], bool(correct))
+
+        session["quiz_feedback"] = feedback
+        session["quiz_result"] = result
+        session["quiz_answered"] = True
+        session["quiz_correct"] = bool(correct)
+
+        if correct:
+            session["quiz_score"] = session.get("quiz_score", 0) + 1
+
+        return redirect(url_for("quiz"))
+
+    # GET render
+    feedback = session.pop("quiz_feedback", None)
+    result = session.pop("quiz_result", {})
+    answered = session.pop("quiz_answered", False)
+    was_correct = session.pop("quiz_correct", False)
+
+    display_text = _clean_label_prefix(question.get("text", ""))
+    hide_difficulty = bool(session.get("quiz_difficulty_filter"))
+    return render_template(
+        "quiz.html",
+        question=question,
+        display_text=display_text,
+        feedback=feedback,
+        result=result,
+        answered=answered,
+        was_correct=was_correct,
+        hide_difficulty=hide_difficulty,
+        explanation=question.get("explanation"),   # <-- ADD THIS
+        adaptive=session.get("adaptive", False)
+)
+
 
 
 @app.route("/quiz/start", methods=["POST"])
 def quiz_start():
-    questions = load_json(QUESTION_FILE)
+    count = int(request.form.get("count", 5))
+    difficulty = request.form.get("difficulty", "")
+    topic = request.form.get("topic", "")
 
-    num = int(request.form.get("num"))
-    difficulty = request.form.get("difficulty")
-    topic = request.form.get("topic")
+    # Detect adaptive mode
+    adaptive = request.form.get("adaptive") == "on"
+    session["adaptive"] = adaptive
 
-    # Filter
-    filtered = [
-        q for q in questions
-        if (difficulty == "Any" or q["difficulty"] == difficulty)
-        and (topic == "Any" or q["topic"] == topic)
-    ]
+    if adaptive:
+        difficulty = get_adaptive_difficulty(topic)
 
-    # Pick num questions
-    session["quiz"] = filtered[:num]
-    session["index"] = 0
-    session["score"] = 0
-    session["mistakes"] = 0
-    session["start"] = datetime.now().timestamp()
+    qs = get_random_questions(count, topic, difficulty)
+    session["quiz_questions"] = qs
+    session["quiz_index"] = 0
+    session["quiz_score"] = 0
+    session["quiz_total"] = len(qs)
+    session["quiz_started"] = True
+    session["quiz_difficulty_filter"] = difficulty
 
-    return redirect(url_for("quiz_question"))
+    return redirect(url_for("quiz"))
 
 
-@app.route("/quiz/question", methods=["GET", "POST"])
-def quiz_question():
-    if "quiz" not in session:
-        return redirect(url_for("quiz_setup"))
+@app.route("/quiz/next", methods=["POST"])
+def quiz_next():
+    session["quiz_index"] = session.get("quiz_index", 0) + 1
+    return redirect(url_for("quiz"))
 
-    quiz = session["quiz"]
-    index = session["index"]
-
-    if index >= len(quiz):
-        return redirect(url_for("quiz_end"))
-
-    question = quiz[index]
-
-    feedback = None
-    explanation = None
-
-    if request.method == "POST":
-        selected = request.form.get("choice")
-        correct = question["answer"]
-
-        if selected == correct:
-            session["score"] += 1
-            feedback = "correct"
-        else:
-            session["mistakes"] += 1
-            feedback = "wrong"
-            explanation = question.get("explanation", "")
-
-        session["index"] += 1
-
-        return render_template(
-            "quiz_question.html",
-            question=question,
-            feedback=feedback,
-            explanation=explanation
-        )
-
-    return render_template("quiz_question.html", question=question)
 
 @app.route("/quiz/end")
 def quiz_end():
-    score = session.get("score", 0)
-    mistakes = session.get("mistakes", 0)
-    start = session.get("start", 0)
+    score = session.get("quiz_score", 0)
+    total = session.get("quiz_total", 0)
+    percentage = round((score / total) * 100, 1) if total > 0 else 0
 
-    time_elapsed = int(datetime.now().timestamp() - start)
-
-    # Ranking logic
-    if score >= 35:
-        rank = "Platinum"
-    elif score >= 25:
-        rank = "Gold"
-    elif score >= 15:
-        rank = "Silver"
-    else:
-        rank = "Bronze"
-
-    return render_template(
-        "quiz_end.html",
-        score=score,
-        mistakes=mistakes,
-        time=time_elapsed,
-        rank=rank
-    )
-
-# -----------------------------------------------------
-# LOGIC MAZE GAME
-# -----------------------------------------------------
-@app.route("/logic_maze")
-def maze_start():
-    session["maze_room"] = "room1"
-    session["maze_score"] = 0
-    session["maze_mistakes"] = 0
-    session["maze_start"] = datetime.now().timestamp()
-    return redirect(url_for("maze_room"))
+    summary = {"score": score, "total": total, "percentage": percentage}
+    session.clear()
+    return render_template("quiz_end.html", summary=summary)
 
 
-@app.route("/maze/room", methods=["GET", "POST"])
-def maze_room():
-    maze = load_json(MAZE_FILE)
-    room_id = session.get("maze_room", "room1")
-    room = maze[room_id]
+# -------------------------
+# FLASHCARDS (Review)
+# -------------------------
+@app.route("/review")
+def review_page():
+    return render_template("review.html")
+
+
+@app.route("/review_data")
+def review_data():
+    topic = request.args.get("topic", "").strip()
+    difficulty = request.args.get("difficulty", "").strip()
+
+    topic = topic.replace("&amp;", "&")
+
+    with open("questions_full_200.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    def clean_text(t):
+        return re.sub(r"^\[[^\]]+\]\s*", "", t or "")
+
+    cards = []
+    for q in data:
+        ans_letter = q.get("answer", "A")
+        index = ord(ans_letter) - 65
+        options = q.get("options", [])
+        answer_text = options[index] if 0 <= index < len(options) else ""
+
+        cards.append({
+            "question": clean_text(q.get("question", "")),
+            "answer": answer_text,
+            "topic": q.get("topic", ""),
+            "difficulty": q.get("difficulty", "")
+        })
+
+    if topic:
+        cards = [c for c in cards if c["topic"] == topic]
+    if difficulty:
+        cards = [c for c in cards if c["difficulty"] == difficulty]
+
+    return jsonify(cards[:120])
+
+
+# -------------------------
+# Errors
+# -------------------------
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("errors/404.html"), 404
+
+
+# -----------------------------
+# LOGIC MAZE GAME ROUTES
+# -----------------------------
+@app.route("/logic_maze", methods=["GET", "POST"])
+def logic_maze():
+    return handle_room_logic(request)
+
+
+@app.route("/logic_maze/reset")
+def logic_maze_reset():
+    return reset_maze()
+
+
+def init_maze_state():
+    session["maze_state"] = {
+        "current_room": "A",
+        "score": 0,
+        "mistakes": 0,
+        "start_time": datetime.now().timestamp(),
+    }
+
+
+def load_maze():
+    with open("maze_rooms.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def handle_room_logic(request):
+    if "maze_state" not in session:
+        init_maze_state()
+
+    state = session["maze_state"]
+    maze = load_maze()
+    current_room = state["current_room"]
+
+    if current_room == "END":
+        total_time = datetime.now().timestamp() - state["start_time"]
+        return render_template(
+            "maze_end.html",
+            score=state["score"],
+            mistakes=state["mistakes"],
+            time=round(total_time, 2),
+        )
+
+    room_data = maze[current_room]
 
     if request.method == "POST":
         choice = request.form.get("choice")
-        correct = room["correct"]
-
-        if choice == correct:
-            session["maze_score"] += 1
-            next_room = room["next"]
-            session["maze_room"] = next_room
-
-            if next_room == "end":
-                return redirect(url_for("maze_end"))
+        if choice == room_data["correct"]:
+            state["score"] += 10
+            state["current_room"] = room_data["next"]
         else:
-            session["maze_mistakes"] += 1
+            state["mistakes"] += 1
+            state["score"] -= 3
 
-    return render_template("maze_room.html", room=room)
-
-
-@app.route("/logic_maze/end")
-def maze_end():
-    score = session.get("maze_score", 0)
-    mistakes = session.get("maze_mistakes", 0)
-    time_elapsed = int(datetime.now().timestamp() - session.get("maze_start", 0))
+        session["maze_state"] = state
+        return redirect("/logic_maze")
 
     return render_template(
-        "maze_end.html",
-        score=score,
-        mistakes=mistakes,
-        time=time_elapsed
+        "maze_room.html",
+        room=room_data,
+        score=state["score"],
+        mistakes=state["mistakes"],
     )
 
-# -----------------------------------------------------
-# THEME SWITCHER
-# -----------------------------------------------------
-@app.route("/theme/<mode>")
-def theme(mode):
-    session["theme"] = mode
-    return redirect(request.referrer or url_for("dashboard"))
 
-# -----------------------------------------------------
-# RUN APP
-# -----------------------------------------------------
+def reset_maze():
+    session.pop("maze_state", None)
+    return redirect("/logic_maze")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
